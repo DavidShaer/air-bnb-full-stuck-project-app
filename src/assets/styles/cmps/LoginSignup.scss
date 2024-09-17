@@ -1,0 +1,22 @@
+.login-page {
+  .login-form {
+    position: fixed;
+    background-color: #fff;
+    padding: 10px 30px;
+    border-radius: 8px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid #000;
+  }
+  .signup-section {
+    position: fixed;
+    background-color: #fff;
+    padding: 10px 30px;
+    border-radius: 8px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid #000;
+  }
+}

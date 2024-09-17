@@ -9,7 +9,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { Card } from "./utils/Card.jsx";
 
 export function AppHeader() {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const user = useSelector((storeState) => storeState.userModule.user);
   const navigate = useNavigate();
 
@@ -41,25 +42,48 @@ export function AppHeader() {
     }
   }
 
+  const onModalOpen = () => {
+    setIsModalOpen(true);
+  };
+
+  const onToggleHamburger = () => {
+    setIsMenuOpen(!isMenuOpen);
+    setIsModalOpen(false);
+  }
+
   return (
     <header className="app-header">
       <nav className="nav-container wrapper">
         <div className="nav-main-links">
           <NavLink to="">Home 🏠</NavLink>
-          <NavLink to="about">About</NavLink>
           <NavLink to="car">Cars</NavLink>
           <NavLink to="chat">Chat</NavLink>
-          <NavLink to="review">Review</NavLink>
           <NavLink to="board">Boards</NavLink>
         </div>
 
         <div className="hamburger-menu">
-            <GiHamburgerMenu/>
-            {isMenuOpen && 
-            <div className="hamburger-dropdown">dropdown</div>
-            }
+          <GiHamburgerMenu onClick={onToggleHamburger} />
+          {isMenuOpen && (
+            <Card classes={"dropdown"}>
+              <>
+                {user ? (
+                  <button onClick={onLogout}>Logout</button>
+                ) : (
+                  <section className="user-info">
+                    <LoginSignup
+                      onLogin={onLogin}
+                      onSignup={onSignup}
+                      onModalOpen={onModalOpen}
+                      isModalOpen={isModalOpen}
+                    />
+                  </section>
+                )}
+                <NavLink to="about">About</NavLink>
+                <NavLink to="review">Review</NavLink>
+              </>
+            </Card>
+          )}
         </div>
-
         {user && (
           <span className="user-info">
             <Link to={`user/${user._id}`}>
@@ -67,13 +91,7 @@ export function AppHeader() {
               {user.fullname}
             </Link>
             <span className="score">{user.score?.toLocaleString()}</span>
-            <button onClick={onLogout}>Logout</button>
           </span>
-        )}
-        {!user && (
-          <section className="user-info">
-            <LoginSignup onLogin={onLogin} onSignup={onSignup} />
-          </section>
         )}
       </nav>
     </header>
