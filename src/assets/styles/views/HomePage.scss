@@ -1,0 +1,41 @@
+.home-page {
+    font-size: 1.125rem;
+	/* margin: 0; */
+	max-width: 1024px;
+	margin: auto;
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr 4fr 4fr 4fr;
+	height: 100vh;
+    grid-template-areas: 
+    "header"
+    "header-search"
+    "main-filter"
+    "main-A"
+    "main-B"
+    "footer";
+}
+
+.header { 
+    grid-area: header; 
+    background-color: #e0f7fa;
+}
+.header-search { 
+    grid-area: header-search; 
+    background-color: #b2ebf2;
+}
+.main-filter { 
+    grid-area: main-filter; 
+    background-color: #80deea;
+}
+.main-A { 
+    grid-area: main-A; 
+    background-color: #4dd0e1;
+}
+.main-B { 
+    grid-area: main-B; 
+    background-color: #26c6da;
+}
+.footer { 
+    grid-area: footer; 
+    background-color: #00bcd4;
+}
