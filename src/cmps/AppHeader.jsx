@@ -7,6 +7,10 @@ import { LoginSignup } from "./LoginSignup.jsx";
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Card } from "./utils/Card.jsx";
+import { IoGlobeOutline } from "react-icons/io5";
+import { IoLogoCodepen } from "react-icons/io";
+import { RxAvatar } from "react-icons/rx";
+import SearchBar from "./SearchBar.jsx";
 
 export function AppHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -49,20 +53,28 @@ export function AppHeader() {
   const onToggleHamburger = () => {
     setIsMenuOpen(!isMenuOpen);
     setIsModalOpen(false);
-  }
+  };
 
   return (
     <header className="app-header">
       <nav className="nav-container wrapper">
-        <div className="nav-main-links">
+        {/* <div className="nav-main-links">
           <NavLink to="">Home 🏠</NavLink>
           <NavLink to="car">Cars</NavLink>
           <NavLink to="chat">Chat</NavLink>
           <NavLink to="board">Boards</NavLink>
-        </div>
+        </div> */}
 
         <div className="hamburger-menu">
-          <GiHamburgerMenu onClick={onToggleHamburger} />
+          <div className="hamburger-wrapper" onClick={onToggleHamburger}>
+            <GiHamburgerMenu size={24} className="hamburger-icon"/>
+            <RxAvatar size={30} className="avatar-icon"/>
+          </div>
+          <IoGlobeOutline size={30} className="glob-icon"/>
+          <div className="airbnb-text">
+            <span>Airbnb-</span>
+            <span>להציע את הבית ב</span>
+          </div>
           {isMenuOpen && (
             <Card classes={"dropdown"}>
               <>
@@ -84,6 +96,7 @@ export function AppHeader() {
             </Card>
           )}
         </div>
+        <IoLogoCodepen size={35} className="app-logo"/>
         {user && (
           <span className="user-info">
             <Link to={`user/${user._id}`}>
@@ -94,6 +107,7 @@ export function AppHeader() {
           </span>
         )}
       </nav>
+      <SearchBar/>
     </header>
   );
 }
