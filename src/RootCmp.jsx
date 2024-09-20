@@ -8,10 +8,9 @@ import { AppFooter } from "./cmps/AppFooter";
 export function RootCmp() {
   return (
     <div>
-      {/* <AppHeader /> */}
       <main>
         <Routes>
-          <Route path="" element={<HomePage />} />
+          <Route path="air-bnb-full-stuck-project/" element={<HomePage />} />
         </Routes>
       </main>
       {/* <AppFooter /> */}
