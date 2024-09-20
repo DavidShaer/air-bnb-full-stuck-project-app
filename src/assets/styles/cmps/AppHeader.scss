@@ -1,62 +1,185 @@
 .app-header {
-    background-color: $clr4;
-    padding: 10px;
-    .user-info {
-        color: $clr1;
+  background-color: $clr6;
+  padding: 10px;
+  .user-info {
+    color: $clr1;
 
-        .score {
-            background-color: $clr2;
-            color: $clr6;
-            padding: 8px;
-            margin: 10px;
-            border-radius: 50%;
+    .score {
+      background-color: $clr2;
+      color: $clr6;
+      padding: 8px;
+      margin: 10px;
+      border-radius: 50%;
+    }
+
+    img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  .user-info .btn-link {
+    color: $clr2;
+  }
+
+  nav {
+    font-size: 0.8em;
+    background-color: $clr6;
+    padding: 5px;
+  }
+
+  nav a:first-child {
+    margin-right: 30px;
+  }
+
+  nav a:not(:first-child) {
+    border-top: 1px solid $clr1;
+    padding: 0 5px;
+    margin: 10px;
+  }
+
+  nav .active {
+    color: $clr1;
+  }
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .hamburger-menu {
+      position: relative;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      .hamburger-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 5px 10px;
+        border-radius: 25px;
+        border: 1px solid rgb(221, 221, 221);
+        width: fit-content;
+        cursor: pointer;
+        .avatar-icon,
+        .hamburger-icon {
+          color: $gray5;
         }
+      }
+      .glob-icon {
+        color: $clr7;
+      }
+      .airbnb-text {
+        color: $clr7;
+      }
+      .dropdown {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 200px;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    .app-logo {
+      color: $clr1;
+    }
+  }
 
-        img {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            object-fit: cover;
+  .search-bar-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    .search-bar-nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      .nav-link {
+        cursor: pointer;
+        color: $gray5;
+        &.active {
+          font-weight: bold;
+          color: $clr7;
         }
+      }
     }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      border: 1px solid rgb(221, 221, 221);
+      box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1),
+        0 1px 2px 0 rgba(0, 0, 0, 0.08);
+      border-radius: 30px;
+      width: 75vw;
+      font-size: 12px;
 
-    .user-info .btn-link {
-        color: $clr2;
-    }
-
-    nav {
-        font-size: .8em;
-        background-color: $clr5;
-        padding: 5px;
-
-    }
-
-    nav a:first-child {
-        margin-right: 30px;
-    }
-
-    nav a:not(:first-child) {
-        border-top: 1px solid $clr1;
-        padding: 0 5px;
-        margin: 10px;
-    }
-
-    nav .active {
-        color: $clr1;
-    }
-    .nav-container {
-        .hamburger-menu {
-            position: relative;
-            .dropdown {
-                position: absolute;
-               top: 10px;
-               left: 0;
-                width: 200px;
-                background-color: #fff;
-                display: flex;
-                flex-direction: column;
-            }
+      .search-section {
+        margin: 15px 0;
+        padding: 0px 10px;
+      }
+      .search {
+        border-right: 1px solid $clr1;
+        flex: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .search-icon {
+          background-color: $clr1;
+          color: $clr6;
+          border-radius: 50%;
+          padding: 5px;
         }
-    }
+        .sreach-text-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          .text-top {
+            color: $clr7;
+            font-weight: bold;
+          }
+          .text-bottom {
+            color: $gray5;
+            font-size: 14px;
+          }
+        }
+      }
+      .date {
+        border-right: 1px solid $clr1;
+        flex: 2;
+      }
+      .checkin {
+        border-right: 1px solid $clr1;
+        flex: 1;
+      }
+      .checkout {
+        border-right: 1px solid $clr1;
+        flex: 1;
+      }
+      .destination {
+        flex: 2;
+      }
 
+      .date,
+      .checkin,
+      .checkout,
+      .destination {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        .text-top {
+          color: $clr7;
+          font-weight: bold;
+        }
+        .text-bottom {
+          color: $gray5;
+          text-align: end;
+          font-size: 14px;
+        }
+      }
+    }
+  }
 }
