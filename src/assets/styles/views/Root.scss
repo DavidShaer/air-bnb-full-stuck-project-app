@@ -1,0 +1,42 @@
+:root {
+    --margin-left: 4%;
+    --margin-right: 4%;
+  }
+  
+  .app-container {
+    display: grid;
+    grid-template-rows: 2fr 1fr 5fr 2fr;
+    grid-template-areas: 
+      "header"
+      "filter-nav"
+      "index"
+      "footer";
+    width: calc(100vw - var(--margin-left) - var(--margin-right));
+    height: 100vh;
+    margin-left: var(--margin-left);
+    margin-right: var(--margin-right);
+  }
+
+.app-header {
+    grid-area: header;
+}
+
+.app-filter-nav {
+    grid-area: filter-nav;
+    border-radius: 10px;
+    align-content: center;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+.app-index {
+    grid-area: index;
+    display: grid;
+    align-items: center;
+    background-color: $clr5;
+    border-radius: 10px;
+}
+
+.app-footer {
+    grid-area: footer;
+    border-radius: 10px;
+}

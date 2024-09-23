@@ -56,7 +56,8 @@ export function AppHeader() {
   };
 
   return (
-    <header className="app-header">
+    // <header className="app-header">
+    <header>
       <nav className="nav-container wrapper">
         {/* <div className="nav-main-links">
           <NavLink to="">Home 🏠</NavLink>
@@ -67,10 +68,10 @@ export function AppHeader() {
 
         <div className="hamburger-menu">
           <div className="hamburger-wrapper" onClick={onToggleHamburger}>
-            <GiHamburgerMenu size={24} className="hamburger-icon"/>
-            <RxAvatar size={30} className="avatar-icon"/>
+            <GiHamburgerMenu size={24} className="hamburger-icon" />
+            <RxAvatar size={30} className="avatar-icon" />
           </div>
-          <IoGlobeOutline size={30} className="glob-icon"/>
+          <IoGlobeOutline size={30} className="glob-icon" />
           <div className="airbnb-text">
             <span>Airbnb-</span>
             <span>להציע את הבית ב</span>
@@ -96,7 +97,7 @@ export function AppHeader() {
             </Card>
           )}
         </div>
-        <IoLogoCodepen size={35} className="app-logo"/>
+        <IoLogoCodepen size={35} className="app-logo" />
         {user && (
           <span className="user-info">
             <Link to={`user/${user._id}`}>
@@ -107,7 +108,7 @@ export function AppHeader() {
           </span>
         )}
       </nav>
-      <SearchBar/>
+      <SearchBar />
     </header>
   );
 }
