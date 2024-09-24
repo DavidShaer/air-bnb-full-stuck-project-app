@@ -18,6 +18,7 @@ import { AppHeader } from "./cmps/AppHeader";
 import { AppFooter } from "./cmps/AppFooter";
 import { AppFilterNav } from "./cmps/AppFilterNav.jsx";
 import { AppIndex } from "./cmps/AppIndex.jsx";
+import AppGallery from "./cmps/AppGallery.jsx";
 
 export function RootCmp() {
   return (
@@ -28,12 +29,13 @@ export function RootCmp() {
       <div className="app-filter-nav">
         <AppFilterNav />
       </div>
-      <div className="app-index">
+      <AppGallery/>
+      {/* <div className="app-index">
         <AppIndex />
       </div>
       <div className="app-footer">
         <AppFooter />
-      </div>
+      </div> */}
     </div>
   );
 }

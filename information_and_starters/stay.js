@@ -1,55 +1,317 @@
-const stay = {
-  _id: "s101",
-  name: "Ribeira Charming Duplex",
-  type: "House",
-  imgUrls: ["https://e26e9b.jpg", "otherImg.jpg"],
-  price: 80.00,
-  summary: "Fantastic duplex apartment...",
-  capacity: 8,
-  amenities: [
-    "TV",
-    "Wifi",
-    "Kitchen",
-    "Smoking allowed",
-    "Pets allowed",
-    "Cooking basics"
-  ],
-  labels: [
-    "Top of the world",
-    "Trending",
-    "Play",
-    "Tropical"
-  ], // filter scroll
-  // amenities and labels should be fixed list !?
-  // we missing availability dates ??
-
-  host: {
-    _id: "u101",
-    fullname: "Davit Pok",
-    imgUrl: "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
-  },
-  loc: {
-    country: "Portugal",
-    countryCode: "PT",
-    city: "Lisbon",
-    address: "17 Kombo st",
-    lat: -8.61308,
-    lng: 41.1413
-  },
-  reviews: [
-    {
-      id: "madeId",
-      txt: "Very helpful hosts. Cooked traditional...",
-      rate: 4,
-      by: {
-        _id: "u102",
-        fullname: "user2",
-        imgUrl: "/img/img2.jpg"
+export const placeList = [
+  {
+    _id: "s101",
+    name: "Ribeira Charming Duplex",
+    type: "House",
+    imgUrls: ["https://plus.unsplash.com/premium_photo-1661962590522-1b700c5bb5e3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cml2aWVyYXxlbnwwfHwwfHx8MA%3D%3D", "otherImg.jpg"],
+    price: 80.00,
+    summary: "Fantastic duplex apartment...",
+    capacity: 8,
+    amenities: [
+      "TV",
+      "Wifi",
+      "Kitchen",
+      "Smoking allowed",
+      "Pets allowed",
+      "Cooking basics"
+    ],
+    labels: [
+      "Top of the world",
+      "Trending",
+      "Play",
+      "Tropical"
+    ], // filter scroll
+    // amenities and labels should be fixed list !?
+    // we missing availability dates ??
+  
+    host: {
+      _id: "u101",
+      fullname: "Davit Pok",
+      imgUrl: "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+    },
+    loc: {
+      country: "Portugal",
+      countryCode: "PT",
+      city: "Lisbon",
+      address: "17 Kombo st",
+      lat: -8.61308,
+      lng: 41.1413
+    },
+    reviews: [
+      {
+        id: "madeId",
+        txt: "Very helpful hosts. Cooked traditional...",
+        rate: 4,
+        by: {
+          _id: "u102",
+          fullname: "user2",
+          imgUrl: "/img/img2.jpg"
+        }
       }
-    }
-  ],
-  likedByUsers: ['mini-user']
-}
+    ],
+    likedByUsers: ['mini-user']
+  },
+  {
+    _id: "s102",
+    name: "Ribeira Charming Duplex",
+    type: "House",
+    imgUrls: ["https://plus.unsplash.com/premium_photo-1723840389193-c447e67457db?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cml2aWVyYXxlbnwwfHwwfHx8MA%3D%3D", "otherImg.jpg"],
+    price: 80.00,
+    summary: "Fantastic duplex apartment...",
+    capacity: 8,
+    amenities: [
+      "TV",
+      "Wifi",
+      "Kitchen",
+      "Smoking allowed",
+      "Pets allowed",
+      "Cooking basics"
+    ],
+    labels: [
+      "Top of the world",
+      "Trending",
+      "Play",
+      "Tropical"
+    ], // filter scroll
+    // amenities and labels should be fixed list !?
+    // we missing availability dates ??
+  
+    host: {
+      _id: "u101",
+      fullname: "Davit Pok",
+      imgUrl: "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+    },
+    loc: {
+      country: "Portugal",
+      countryCode: "PT",
+      city: "Lisbon",
+      address: "17 Kombo st",
+      lat: -8.61308,
+      lng: 41.1413
+    },
+    reviews: [
+      {
+        id: "madeId",
+        txt: "Very helpful hosts. Cooked traditional...",
+        rate: 4,
+        by: {
+          _id: "u102",
+          fullname: "user2",
+          imgUrl: "/img/img2.jpg"
+        }
+      }
+    ],
+    likedByUsers: ['mini-user']
+  },
+  {
+    _id: "s103",
+    name: "Ribeira Charming Duplex",
+    type: "House",
+    imgUrls: ["https://plus.unsplash.com/premium_photo-1661963861529-02951a02a25f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHJpdmllcmF8ZW58MHx8MHx8fDA%3D", "otherImg.jpg"],
+    price: 80.00,
+    summary: "Fantastic duplex apartment...",
+    capacity: 8,
+    amenities: [
+      "TV",
+      "Wifi",
+      "Kitchen",
+      "Smoking allowed",
+      "Pets allowed",
+      "Cooking basics"
+    ],
+    labels: [
+      "Top of the world",
+      "Trending",
+      "Play",
+      "Tropical"
+    ], // filter scroll
+    // amenities and labels should be fixed list !?
+    // we missing availability dates ??
+  
+    host: {
+      _id: "u101",
+      fullname: "Davit Pok",
+      imgUrl: "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+    },
+    loc: {
+      country: "Portugal",
+      countryCode: "PT",
+      city: "Lisbon",
+      address: "17 Kombo st",
+      lat: -8.61308,
+      lng: 41.1413
+    },
+    reviews: [
+      {
+        id: "madeId",
+        txt: "Very helpful hosts. Cooked traditional...",
+        rate: 4,
+        by: {
+          _id: "u102",
+          fullname: "user2",
+          imgUrl: "/img/img2.jpg"
+        }
+      }
+    ],
+    likedByUsers: ['mini-user']
+  },
+  {
+    _id: "s104",
+    name: "Ribeira Charming Duplex",
+    type: "House",
+    imgUrls: ["https://plus.unsplash.com/premium_photo-1661962590522-1b700c5bb5e3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cml2aWVyYXxlbnwwfHwwfHx8MA%3D%3D", "otherImg.jpg"],
+    price: 80.00,
+    summary: "Fantastic duplex apartment...",
+    capacity: 8,
+    amenities: [
+      "TV",
+      "Wifi",
+      "Kitchen",
+      "Smoking allowed",
+      "Pets allowed",
+      "Cooking basics"
+    ],
+    labels: [
+      "Top of the world",
+      "Trending",
+      "Play",
+      "Tropical"
+    ], // filter scroll
+    // amenities and labels should be fixed list !?
+    // we missing availability dates ??
+  
+    host: {
+      _id: "u101",
+      fullname: "Davit Pok",
+      imgUrl: "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+    },
+    loc: {
+      country: "Portugal",
+      countryCode: "PT",
+      city: "Lisbon",
+      address: "17 Kombo st",
+      lat: -8.61308,
+      lng: 41.1413
+    },
+    reviews: [
+      {
+        id: "madeId",
+        txt: "Very helpful hosts. Cooked traditional...",
+        rate: 4,
+        by: {
+          _id: "u102",
+          fullname: "user2",
+          imgUrl: "/img/img2.jpg"
+        }
+      }
+    ],
+    likedByUsers: ['mini-user']
+  },
+  {
+    _id: "s105",
+    name: "Ribeira Charming Duplex",
+    type: "House",
+    imgUrls: ["https://plus.unsplash.com/premium_photo-1723840389193-c447e67457db?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cml2aWVyYXxlbnwwfHwwfHx8MA%3D%3D", "otherImg.jpg"],
+    price: 80.00,
+    summary: "Fantastic duplex apartment...",
+    capacity: 8,
+    amenities: [
+      "TV",
+      "Wifi",
+      "Kitchen",
+      "Smoking allowed",
+      "Pets allowed",
+      "Cooking basics"
+    ],
+    labels: [
+      "Top of the world",
+      "Trending",
+      "Play",
+      "Tropical"
+    ], // filter scroll
+    // amenities and labels should be fixed list !?
+    // we missing availability dates ??
+  
+    host: {
+      _id: "u101",
+      fullname: "Davit Pok",
+      imgUrl: "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+    },
+    loc: {
+      country: "Portugal",
+      countryCode: "PT",
+      city: "Lisbon",
+      address: "17 Kombo st",
+      lat: -8.61308,
+      lng: 41.1413
+    },
+    reviews: [
+      {
+        id: "madeId",
+        txt: "Very helpful hosts. Cooked traditional...",
+        rate: 4,
+        by: {
+          _id: "u102",
+          fullname: "user2",
+          imgUrl: "/img/img2.jpg"
+        }
+      }
+    ],
+    likedByUsers: ['mini-user']
+  },
+  {
+    _id: "s106",
+    name: "Ribeira Charming Duplex",
+    type: "House",
+    imgUrls: ["https://plus.unsplash.com/premium_photo-1661963861529-02951a02a25f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHJpdmllcmF8ZW58MHx8MHx8fDA%3D", "otherImg.jpg"],
+    price: 80.00,
+    summary: "Fantastic duplex apartment...",
+    capacity: 8,
+    amenities: [
+      "TV",
+      "Wifi",
+      "Kitchen",
+      "Smoking allowed",
+      "Pets allowed",
+      "Cooking basics"
+    ],
+    labels: [
+      "Top of the world",
+      "Trending",
+      "Play",
+      "Tropical"
+    ], // filter scroll
+    // amenities and labels should be fixed list !?
+    // we missing availability dates ??
+  
+    host: {
+      _id: "u101",
+      fullname: "Davit Pok",
+      imgUrl: "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+    },
+    loc: {
+      country: "Portugal",
+      countryCode: "PT",
+      city: "Lisbon",
+      address: "17 Kombo st",
+      lat: -8.61308,
+      lng: 41.1413
+    },
+    reviews: [
+      {
+        id: "madeId",
+        txt: "Very helpful hosts. Cooked traditional...",
+        rate: 4,
+        by: {
+          _id: "u102",
+          fullname: "user2",
+          imgUrl: "/img/img2.jpg"
+        }
+      }
+    ],
+    likedByUsers: ['mini-user']
+  },
+];
 
 const orders = [
   {
