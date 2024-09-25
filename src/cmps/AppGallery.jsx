@@ -3,7 +3,8 @@ import { placeList } from "../../information_and_starters/stay";
 import { MdIosShare } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
 
-const AppGallery = () => {
+//  const AppGallery = () => {
+export function AppGallery() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentCard, setCurrentCard] = useState(null);
 
@@ -60,6 +61,6 @@ const AppGallery = () => {
       )}
     </div>
   );
-};
+}
 
-export default AppGallery;
+// export default AppGallery;

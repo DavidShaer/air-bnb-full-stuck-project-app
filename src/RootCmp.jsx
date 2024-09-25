@@ -29,7 +29,7 @@ export function RootCmp() {
       <div className="app-filter-nav">
         <AppFilterNav />
       </div>
-      <AppGallery/>
+      <AppGallery />
       {/* <div className="app-index">
         <AppIndex />
       </div>
