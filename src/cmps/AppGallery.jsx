@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { placeList } from "../../information_and_starters/stay";
 import { MdIosShare } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 //  const AppGallery = () => {
 export function AppGallery() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentCard, setCurrentCard] = useState(null);
+  const navigate = useNavigate();
 
   const modalOpenHandler = (cardId) => {
     setIsModalOpen(true);
@@ -14,10 +16,18 @@ export function AppGallery() {
     setCurrentCard(card);
   };
 
+  function hundleStayClick(stayId) {
+    navigate(`rooms/${stayId}`);
+  }
+
   return (
     <div className="app-gallery">
       {placeList.map((place) => (
-        <div key={place._id} className="gallery-item">
+        <div
+          key={place._id}
+          className="gallery-item"
+          onClick={() => hundleStayClick(place._id)}
+        >
           <div className="item-image-wrapper">
             <MdIosShare
               className="item-share-icon"
