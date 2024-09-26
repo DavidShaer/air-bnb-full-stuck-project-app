@@ -15,15 +15,14 @@ export function AppIndex() {
     dispatch(loadStays());
   }, [dispatch]);
 
-  function stayClickHandler(image_name) {
-    console.log("image_name.replace", image_name.replace(".jpg", ""));
+  function iconClickHandler(image_name) {
     dispatch(filterByIcon(image_name.replace(".jpg", "")));
   }
 
   return (
     <div className="app-continer">
       <AppHeader />
-      <AppFilterNav stayClickHandler={stayClickHandler} />
+      <AppFilterNav stayClickHandler={iconClickHandler} />
       <AppGallery />
       <AppFooter />
     </div>
