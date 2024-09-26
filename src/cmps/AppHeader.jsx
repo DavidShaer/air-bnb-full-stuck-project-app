@@ -15,7 +15,9 @@ import SearchBar from "./SearchBar.jsx";
 export function AppHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const user = useSelector((storeState) => storeState.userModule.user);
+  // const user = useSelector((storeState) => storeState.userModule.user);
+  const user = useSelector((storeState) => storeState?.userModule?.user);
+
   const navigate = useNavigate();
 
   async function onLogin(credentials) {
@@ -58,8 +60,7 @@ export function AppHeader() {
   return (
     //TODO:  wrap the class name scss here....
 
-    // <header className="app-header">
-    <header>
+    <header className="app-header">
       <nav className="nav-container wrapper">
         {/* <div className="nav-main-links">
           <NavLink to="">Home 🏠</NavLink>

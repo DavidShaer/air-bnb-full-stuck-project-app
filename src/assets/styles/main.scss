@@ -21,8 +21,8 @@
 @import "views/BoardIndex";
 @import "views/BoardDetails";
 @import "views/TaskDetails";
-@import "views/Root";
-
+// @import "views/Root";
+@import "views/AppIndex";
 
 // Components
 @import "cmps/AppHeader";
@@ -32,3 +32,4 @@
 @import "cmps/LoginSignup";
 @import "cmps/AppFilterNav";
 @import "cmps/AppGallery";
+

@@ -5,8 +5,7 @@ export function AppFooter() {
   const count = useSelector((storeState) => storeState.userModule.count);
 
   return (
-    // <footer className="app-footer">
-    <footer>
+    <footer className="app-footer">
       <p>coffeerights - count: {count}</p>
       <UserMsg />
     </footer>
