@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { placeList } from "../../information_and_starters/stay";
+import { dummyData } from "../../information_and_starters/stay";
 import { MdIosShare } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
 
@@ -9,13 +9,13 @@ const AppGallery = () => {
 
   const modalOpenHandler = (cardId) => {
     setIsModalOpen(true);
-    const card = placeList.find((place) => place._id === cardId);
+    const card = dummyData.find((place) => place._id === cardId);
     setCurrentCard(card);
   };
 
   return (
     <div className="app-gallery">
-      {placeList.map((place) => (
+      {dummyData.map((place) => (
         <div key={place._id} className="gallery-item">
           <div className="item-image-wrapper">
             <MdIosShare
