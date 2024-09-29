@@ -16,7 +16,8 @@ export function AppIndex() {
   }, [dispatch]);
 
   function categoryClickHandler(image_name) {
-    dispatch(filterByIcon(image_name.replace(".jpg", "")));
+    console.log("image_name ", image_name.replace(".jpg", "").replace("_", ""));
+    dispatch(filterByIcon(image_name.replace(".jpg", "").replace("_", "")));
     setSearchParams({ category: image_name.replace(".jpg", "") });
   }
 

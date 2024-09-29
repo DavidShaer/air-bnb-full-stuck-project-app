@@ -23,7 +23,8 @@ async function query(filterBy = {}) {
   let stays = await storageService.query(STORAGE_KEY)
   if (filterBy.icons) {
     stays = stays.filter(stay => {
-      return stay.labels.includes(filterBy.icons);
+      // return stay.type.includes(filterBy.icons);
+      return stay.type.toLowerCase().replace(" ", "").includes(filterBy.icons.toLowerCase().replace("_", " "));
     });
   }
   return stays
