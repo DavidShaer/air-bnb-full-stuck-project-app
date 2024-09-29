@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-export function AppFilterNav({ stayClickHandler }) {
+export function AppFilterNav({ categoryClickHandler }) {
   const images = import.meta.glob("../assets/images/*.{jpg,png,svg}");
 
   const settings = {
@@ -29,7 +29,7 @@ export function AppFilterNav({ stayClickHandler }) {
             <div
               className="filter-nav-item"
               key={imageFilename}
-              onClick={() => stayClickHandler(imageFilename)}
+              onClick={() => categoryClickHandler(imageFilename)}
             >
               <div className="image-wrapper">
                 <img

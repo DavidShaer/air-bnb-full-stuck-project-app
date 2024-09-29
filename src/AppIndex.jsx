@@ -5,24 +5,26 @@ import { AppFilterNav } from "./cmps/AppFilterNav";
 import { AppGallery } from "./cmps/AppGallery";
 import { AppFooter } from "./cmps/AppFooter";
 import { loadStays, filterByIcon } from "./store/stay.actions";
+import { useSearchParams } from "react-router-dom";
 
 export function AppIndex() {
   // ????????
   const dispatch = useDispatch();
   const { stays } = useSelector((state) => state.stayModule);
-
+  const [searchParams, setSearchParams] = useSearchParams();
   useEffect(() => {
     dispatch(loadStays());
   }, [dispatch]);
 
-  function iconClickHandler(image_name) {
+  function categoryClickHandler(image_name) {
     dispatch(filterByIcon(image_name.replace(".jpg", "")));
+    setSearchParams({ category: image_name.replace(".jpg", "") });
   }
 
   return (
     <div className="app-continer">
       <AppHeader />
-      <AppFilterNav stayClickHandler={iconClickHandler} />
+      <AppFilterNav categoryClickHandler={categoryClickHandler} />
       <AppGallery />
       <AppFooter />
     </div>
