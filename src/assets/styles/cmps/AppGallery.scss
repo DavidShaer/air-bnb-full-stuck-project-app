@@ -1,7 +1,7 @@
 .app-gallery {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: stretch;
   gap: 20px;
   flex-wrap: wrap;
   .gallery-item {

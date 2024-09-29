@@ -8,7 +8,6 @@ import { loadStays, filterByIcon } from "./store/stay.actions";
 import { useSearchParams } from "react-router-dom";
 
 export function AppIndex() {
-  // ????????
   const dispatch = useDispatch();
   const { stays } = useSelector((state) => state.stayModule);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -22,7 +21,7 @@ export function AppIndex() {
   }
 
   return (
-    <div className="app-continer">
+    <div className="app-container">
       <AppHeader />
       <AppFilterNav categoryClickHandler={categoryClickHandler} />
       <AppGallery />

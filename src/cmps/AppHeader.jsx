@@ -58,10 +58,8 @@ export function AppHeader() {
   };
 
   return (
-    //TODO:  wrap the class name scss here....
-
     <header className="app-header">
-      <nav className="nav-container wrapper">
+      <nav className="nav-container-wrapper">
         <IoLogoCodepen size={35} className="app-logo" />
 
         <div className="hamburger-menu">

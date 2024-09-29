@@ -1,7 +1,5 @@
 .app-header {
   background-color: $clr6;
-  max-width: 100vw;
-  margin-bottom: 20px;
   .user-info {
     color: $clr1;
 
@@ -44,7 +42,7 @@
   nav .active {
     color: $clr1;
   }
-  .nav-container {
+  .nav-container-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -90,13 +88,14 @@
   }
 
   .search-bar-container {
-    display: flex;
+    display: grid;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     gap: 10px;
     .search-bar-nav {
       display: flex;
+      justify-content: center;
       align-items: center;
       gap: 12px;
       .nav-link {

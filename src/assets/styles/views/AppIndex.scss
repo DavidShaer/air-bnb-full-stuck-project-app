@@ -16,19 +16,18 @@
   margin-left: var(--margin-left);
   margin-right: var(--margin-right);
 }
-
 .app-header {
   grid-area: header;
-}
-
-.app-index {
-  grid-area: index;
   display: grid;
-  align-items: center;
-  background-color: $clr5;
-  border-radius: 10px;
+  justify-content: stretch;
 }
-
+.app-filter-nav {
+  grid-area: filter-nav;
+  width: 100%;
+}
+.app-gallery {
+  grid-area: index;
+}
 .app-footer {
   grid-area: footer;
   border-radius: 10px;
