@@ -15,6 +15,10 @@
   height: 100vh;
   margin-left: var(--margin-left);
   margin-right: var(--margin-right);
+  font-family: "airBnbFont";
+  font-size: 1em;
+  gap: 10px;
+
 }
 .app-header {
   grid-area: header;

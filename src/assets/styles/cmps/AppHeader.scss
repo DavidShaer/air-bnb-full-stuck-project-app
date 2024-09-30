@@ -113,9 +113,9 @@
       border: 1px solid rgb(221, 221, 221);
       box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1),
         0 1px 2px 0 rgba(0, 0, 0, 0.08);
-      border-radius: 30px;
+      border-radius: 90px;
       width: 75vw;
-      font-size: 12px;
+      // font-size: 12px;
 
       .search-section {
         margin: 15px 0;
@@ -157,17 +157,19 @@
             }
           }
         }
-        .sreach-text-wrapper {
+        // who
+        .sreach-text-wrapper { 
           display: flex;
           flex-direction: column;
           align-items: flex-end;
           .text-top {
             color: $clr7;
-            font-weight: bold;
+            font-size: 0.75rem;
           }
           .text-bottom {
-            color: $gray5;
-            font-size: 14px;
+            color: $gray5_5;
+            text-align: end;
+            font-size: 0.75rem;
           }
         }
         .popup-who {
@@ -241,12 +243,12 @@
         align-items: flex-start;
         .text-top {
           color: $clr7;
-          font-weight: bold;
+          font-size: 0.75rem;
         }
         .text-bottom {
-          color: $gray5;
+          color: $gray5_5;
           text-align: end;
-          font-size: 14px;
+          font-size: 0.75rem;
         }
       }
     }
