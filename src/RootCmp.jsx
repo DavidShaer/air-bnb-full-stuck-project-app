@@ -23,13 +23,13 @@ import AppGallery from "./cmps/AppGallery.jsx";
 export function RootCmp() {
   return (
     <div className="app-container">
-      <div className="app-header">
+      {/* <div className="app-header">
         <AppHeader />
-      </div>
-      <div className="app-filter-nav">
+      </div> */}
+      {/* <div className="app-filter-nav">
         <AppFilterNav />
-      </div>
-      <AppGallery />
+      </div> */}
+      {/* <AppGallery /> */}
       {/* <div className="app-index">
         <AppIndex />
       </div>
