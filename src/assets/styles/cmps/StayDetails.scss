@@ -1,9 +1,35 @@
 .stay-details-container {
   margin-top: 20px;
-  padding: 20px;
+  padding: 20px 40px;
   border-top: 2px solid $gray2;
   display: flex;
   flex-direction: column;
+  .top-nav {
+    height: 50px;
+    width: 100vw;
+    color: #fff;
+    background-color: $gray1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    .top-nav-left {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .top-nav-right {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-right: 50px;
+    }
+  }
   .stay-details-top {
     display: flex;
     align-items: center;
@@ -17,6 +43,7 @@
       display: flex;
       align-items: center;
       gap: 15px;
+      color: #222;
       .button-share {
         display: flex;
         align-items: center;
@@ -44,5 +71,121 @@
     }
   }
   .stay-details-gallery {
+    height: 400px;
+    margin-top: 50px;
+    .gallery-grid {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      overflow: hidden;
+      border-radius: 10px;
+      height: 97%;
+      .left {
+        flex: 2;
+        img {
+          height: 400px;
+        }
+      }
+      .middle {
+        flex: 1;
+        height: 400px;
+        img {
+          height: 200px;
+        }
+      }
+      .right {
+        flex: 1;
+        height: 400px;
+        img {
+          height: 200px;
+        }
+      }
+    }
+  }
+
+  .stay-adress {
+    display: flex;
+    margin-top: 50px;
+    .stay-left {
+      display: flex;
+      margin: 0 100px 0 0;
+      flex-direction: column;
+      gap: 30px;
+      flex: 2;
+      .stay-left-top {
+        border-bottom: 2px solid $gray1;
+        padding-bottom: 30px;
+        .stay-left-address {
+          font-size: 30px;
+          font-weight: bold;
+        }
+        .stay-left-details {
+          font-size: 22px;
+        }
+        .stay-left-reviews {
+          font-size: 22px;
+          font-weight: bold;
+          color: #222;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+      }
+      .stay-left-bottom {
+        border-bottom: 2px solid $gray1;
+        padding-bottom: 30px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        .stay-left-bottom-image {
+          border-radius: 50%;
+          overflow: hidden;
+          width: 50px;
+          height: 50px;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .stay-left-bottom-content {
+          .host-name {
+            font-size: 26px;
+            font-weight: bold;
+          }
+          .host-location {
+            color: $gray2;
+          }
+        }
+      }
+    }
+    .stay-right {
+      flex: 1;
+      .stay-right-container {
+        border: 1px solid rgb(221, 221, 221);
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        .stay-right-label {
+          font-size: 30px;
+          font-weight: 500;
+        }
+        .stay-right-button {
+          background: linear-gradient(to left, #ce2e6c, rgb(228, 28, 89));
+          color: #fff;
+          width: 100%;
+          text-align: center;
+          padding: 7px 0;
+          border-radius: 15px;
+          font-weight: bold;
+          font-size: 26px;
+        }
+      }
+    }
   }
 }

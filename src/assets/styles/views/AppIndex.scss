@@ -1,3 +1,16 @@
+
+@font-face {
+  font-family: 'Airbnb Cereal VF';
+  src: url("../../fonts/AirbnbCerealVF_W_Wght.2d9d32865ef1262644c455b3ead871e9\ \(1\).woff2") format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Airbnb Cereal VF', sans-serif;
+}
+
+
 :root {
   --margin-left: 4%;
   --margin-right: 4%;
