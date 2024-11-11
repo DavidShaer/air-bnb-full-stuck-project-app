@@ -1,6 +1,4 @@
-// import { stayService } from '../services/stay.service.local'
 import { stayService } from '../services/stay.service.remote'
-import { store } from './store'
 import { SET_STAYS, SET_STAY } from './stay.reducer'
 
 export function filterByIcon(icon) {
