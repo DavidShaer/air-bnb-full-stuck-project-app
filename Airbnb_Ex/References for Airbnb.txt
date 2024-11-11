@@ -1,0 +1,11 @@
+Project: AIRBNB
+Reference: airbnb.com
+
+
+
+Past projects: 
+
+https://github.com/DanieLevy/AirNest-backend	- with full dashboard
+https://airgpt.onrender.com/#/
+https://akebnb-rental-service.onrender.com/stay
+https://stay-by.onrender.com/#/stay
