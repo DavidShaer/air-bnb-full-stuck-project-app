@@ -1,0 +1,176 @@
+[
+    {
+      "_id": "622f337a75c7d36e498aaaf8",
+      "name": "Westin Kaanapali KORVN 2BR",
+      "type": "National parks",
+      "imgUrls": [
+        "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436975/hx9ravtjop3uqv4giupt.jpg",
+        "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436294/mvhb3iazpiar6duvy9we.jpg",
+        "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436496/ihozxprafjzuhil9qhh4.jpg",
+        "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436952/aef9ajipinpjhkley1e3.jpg",
+        "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436948/vgfxpvmcpd2q40qxtuv3.jpg"
+      ],
+      "price": 595,
+      "summary": "Westin Kaanapali Ocean Resort Villas North timeshare - Pay resort: $14-20/day, stays under 7 night $38/res - Inquire about availability, I review then offer/approve if available :) - READ \"The Space\" for cleaning/etc AND brief explanation about timeshare reservations - Want guaranteed view for additional cost? Must be weekly rental, other restrictions - Wheelchair accessible / ADA, call resort directly to ensure U receive. If U need ADA U MUST inform us BEFORE booking.",
+      "capacity": 8,
+      "amenities": [
+        "TV",
+        "Cable TV",
+        "Internet",
+        "Wifi",
+        "Air conditioning",
+        "Wheelchair accessible",
+        "Pool",
+        "Kitchen",
+        "Free parking on premises",
+        "Doorman",
+        "Gym",
+        "Elevator",
+        "Hot tub",
+        "Heating",
+        "Family/kid friendly",
+        "Suitable for events",
+        "Washer",
+        "Dryer",
+        "Smoke detector",
+        "Carbon monoxide detector",
+        "First aid kit",
+        "Safety card",
+        "Fire extinguisher",
+        "Essentials",
+        "Shampoo",
+        "24-hour check-in",
+        "Hangers",
+        "Hair dryer",
+        "Iron",
+        "Laptop friendly workspace",
+        "Self check-in",
+        "Building staff",
+        "Private entrance",
+        "Room-darkening shades",
+        "Hot water",
+        "Bed linens",
+        "Extra pillows and blankets",
+        "Ethernet connection",
+        "Luggage dropoff allowed",
+        "Long term stays allowed",
+        "Ground floor access",
+        "Wide hallway clearance",
+        "Step-free access",
+        "Wide doorway",
+        "Flat path to front door",
+        "Well-lit path to entrance",
+        "Disabled parking spot",
+        "Step-free access",
+        "Wide doorway",
+        "Wide clearance to bed",
+        "Step-free access",
+        "Wide doorway",
+        "Step-free access",
+        "Wide entryway",
+        "Waterfront",
+        "Beachfront"
+      ],
+      "bathrooms": 2,
+      "bedrooms": 2,
+      "roomType": "Entire home/apt",
+      "host": {
+        "_id": "622f3403e36c59e6164faf93",
+        "fullname": "Patty And Beckett",
+        "location": "Eureka, California, United States",
+        "about": "Adventurous couple loves to travel :)",
+        "responseTime": "within an hour",
+        "thumbnailUrl": "https://a0.muscache.com/im/pictures/542dba0c-eb1b-4ab3-85f3-94d3cc8f87a4.jpg?aki_policy=profile_small",
+        "pictureUrl": "https://a0.muscache.com/im/pictures/542dba0c-eb1b-4ab3-85f3-94d3cc8f87a4.jpg?aki_policy=profile_x_medium",
+        "isSuperhost": true,
+        "id": "36133410"
+      },
+      "loc": {
+        "country": "United States",
+        "countryCode": "US",
+        "city": "Maui",
+        "address": "Lahaina, HI, United States",
+        "lat": -156.6917,
+        "lan": 20.93792
+      },
+      "reviews": [
+        {
+          "at": "2016-06-12T04:00:00.000Z",
+          "by": {
+            "_id": "622f3407e36c59e6164fc004",
+            "fullname": "Kiesha",
+            "imgUrl": "https://robohash.org/10711825?set=set1",
+            "id": "10711825"
+          },
+          "txt": "I had a great experience working with Patty and Peter.  Both were very attentive in sorting out the booking details and following up directly when I had questions.  I rented a 2 bedroom unit at the Westin Villas  in Maui and both the unit and property was absolutely amazing.  I think we had the best unit on the resort complete with 2 outdoor patios with direct access  to  the  beach.  I would HIGHLY recommend renting with Patty and Peter."
+        }
+      ],
+      "likedByUsers": []
+    },
+    {
+      "_id": "622f337a75c7d36e498aaaf9",
+      "name": "Belle chambre à côté Metro Papineau",
+      "type": "Campers",
+      "imgUrls": [
+        "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437045/dmquvficldi8ssfdlrrx.jpg",
+        "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437033/rhw6gycttaimzocc1poz.jpg",
+        "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663437330/mmhkmfvg8o3freucyekc.jpg",
+        "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436867/yocip4igdbruuh2grzpf.jpg",
+        "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436993/yzxnnw83e9qyas022au4.jpg"
+      ],
+      "price": 30,
+      "summary": "Chambre dans un bel appartement moderne avec balcon, ascenseur et terrasse. Private room in a beautiful modern apartment  with balcony, elevator and patio. La chambre est fermée avec une lit double. Vous aurez accès à une salle de bain avec une douche, terrasse. L'appartement est climatisé.  Votre chambre est équipé d'une connexion Wi-Fi illimité. Vous serez proche du centre ville, au pied du pont Jacques Cartier et à distance de marche de toutes les commodités (métro, supermarché, pharmacie",
+      "capacity": 2,
+      "amenities": [
+        "TV",
+        "Wifi",
+        "Air conditioning",
+        "Kitchen",
+        "Elevator",
+        "Buzzer/wireless intercom",
+        "Heating",
+        "Family/kid friendly",
+        "Washer",
+        "Dryer",
+        "Smoke detector",
+        "Carbon monoxide detector",
+        "Essentials",
+        "Iron",
+        "translation missing: en.hosting_amenity_50"
+      ],
+      "bathrooms": 1,
+      "bedrooms": 1,
+      "roomType": "Private room",
+      "host": {
+        "_id": "622f3401e36c59e6164fabab",
+        "fullname": "Angel",
+        "location": "Montreal, Québec, Canada",
+        "about": "",
+        "thumbnailUrl": "https://a0.muscache.com/im/pictures/12be1141-74de-4f04-bf28-82c3ed589d11.jpg?aki_policy=profile_small",
+        "pictureUrl": "https://a0.muscache.com/im/pictures/12be1141-74de-4f04-bf28-82c3ed589d11.jpg?aki_policy=profile_x_medium",
+        "isSuperhost": false,
+        "id": "80344827"
+      },
+      "loc": {
+        "country": "Canada",
+        "countryCode": "CA",
+        "city": "Montreal",
+        "address": "Montréal, QC, Canada",
+        "lat": -73.54985,
+        "lan": 45.52797
+      },
+      "reviews": [
+        {
+          "at": "2016-07-07T04:00:00.000Z",
+          "by": {
+            "_id": "622f3407e36c59e6164fc058",
+            "fullname": "Rowan",
+            "imgUrl": "https://robohash.org/81703602?set=set1",
+            "id": "81703602"
+          },
+          "txt": "The place was great, as was the host! I would recommend staying here."
+        }
+      ],
+      "likedByUsers": []
+    }
+  ]
