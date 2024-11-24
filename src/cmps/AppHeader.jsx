@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
 import { login, logout, signup } from "../store/user.actions";
 import { LoginSignup } from "./LoginSignup.jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Card } from "./utils/Card.jsx";
 import { IoGlobeOutline } from "react-icons/io5";
@@ -17,8 +17,20 @@ export function AppHeader() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   // const user = useSelector((storeState) => storeState.userModule.user);
   const user = useSelector((storeState) => storeState?.userModule?.user);
-
   const navigate = useNavigate();
+  const [isMainFilterClose, setIsMainFilterClose] = useState("");
+
+  useEffect(() => {
+    document.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      if (scrollY > 50) {
+        setIsMainFilterClose("close-header");
+        console.log(scrollY);
+      } else {
+        setIsMainFilterClose("");
+      }
+    });
+  }, []);
 
   async function onLogin(credentials) {
     try {
@@ -103,7 +115,7 @@ export function AppHeader() {
           </span>
         )}
       </nav>
-      <SearchBar />
+      <SearchBar isMainFilterClose={isMainFilterClose} />
     </header>
   );
 }

@@ -15,6 +15,7 @@ export function AppIndex() {
     dispatch(loadStays());
   }, [dispatch]);
 
+
   function categoryClickHandler(image_name) {
     console.log("image_name ", image_name.replace(".jpg", "").replace("_", ""));
     dispatch(filterByIcon(image_name.replace(".jpg", "").replace("_", "")));
@@ -30,3 +31,4 @@ export function AppIndex() {
     </div>
   );
 }
+

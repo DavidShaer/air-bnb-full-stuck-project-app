@@ -87,6 +87,10 @@
     }
   }
 
+  .close-header {
+    background-color: aqua;
+  }
+
   .search-bar-container {
     display: grid;
     align-items: center;
@@ -115,11 +119,50 @@
         0 1px 2px 0 rgba(0, 0, 0, 0.08);
       border-radius: 90px;
       width: 75vw;
-      // font-size: 12px;
+
+      .popup-where {
+        display: grid;
+        position: absolute;
+        margin-top: 65px;
+        background-color: #fff;
+        border-radius: 40px;
+        box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+        z-index: 1;
+        height: 450px;
+        width: 700px;
+        padding: 15px;
+      
+        .where-item-wrapper {
+          display: grid;
+          grid-template-rows: repeat(2, 1fr); /* 2 rows in the main wrapper */
+          grid-template-columns: repeat(3, 1fr); /* 3 columns in the main wrapper */
+          gap: 10px; /* Space between cells */
+          height: 100%; /* Fit wrapper height to parent */
+          width: 100%; /* Fit wrapper width to parent */
+          overflow: hidden; /* Prevent items from exceeding the wrapper */
+        }
+      
+        .where-item {
+          display: grid;
+          align-items: center;
+          justify-content: center;
+          text-align: left;
+          overflow: hidden; /* Prevent content from exceeding the item */
+          font-size: 14px;
+          
+          img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: cover;
+            border-radius: 20px;
+          }
+        }
+      }
 
       .search-section {
         margin: 15px 0;
         padding: 0px 10px;
+        padding-left: 30px;
       }
       .search {
         border-left: 1px solid $clr1;
@@ -130,7 +173,7 @@
         justify-content: space-between;
         position: relative;
         .search-icon-wrapper {
-          background: linear-gradient(to left, $clr1, rgb(228,28,89));
+          background-color: #ff205f;;
           display: flex;
           flex-direction: row-reverse;
           align-items: center;
@@ -161,14 +204,14 @@
         .sreach-text-wrapper { 
           display: flex;
           flex-direction: column;
-          align-items: flex-end;
+          // align-items: flex-end;
           .text-top {
             color: $clr7;
             font-size: 0.75rem;
           }
           .text-bottom {
             color: $gray5_5;
-            text-align: end;
+            // text-align: end;
             font-size: 0.75rem;
           }
         }

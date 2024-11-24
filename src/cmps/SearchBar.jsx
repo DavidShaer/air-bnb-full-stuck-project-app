@@ -1,30 +1,34 @@
 import React, { useState } from "react";
 import { IoSearch } from "react-icons/io5";
 import WhoPopup from "./searchPopups/WhoPopup";
+import WherePopup from "./searchPopups/WherePopup";
 
-const SearchBar = () => {
+const SearchBar = ({ isMainFilterClose }) => {
   const [isRightLinkActive, setIsRightLinkActive] = useState(true);
   const [isGuestOpen, setIsGuestOpen] = useState(false);
   const [isCheckInOpen, setIsCheckInOpen] = useState(false);
   const [isCheckOutOpen, setIsCheckOutOpen] = useState(false);
   const [isDatesOpen, setIsDatesOpen] = useState(false);
   const [isDestinationOpen, setIsDestinationOpen] = useState(false);
+
+  // set
   const [whoPopup, setWhoPopup] = useState({
     adults: 0,
     childrens: 0,
     infants: 0,
     pets: 0,
   });
+
   const isGuestsEmpty = Object.entries(whoPopup).every(
-    ([category,count]) => count === 0
+    ([category, count]) => count === 0
   );
 
-  const onGuestOpen = () => {
-    setIsGuestOpen(true);
+  const onDestinationOpen = () => {
+    setIsGuestOpen(false);
     setIsCheckInOpen(false);
     setIsCheckOutOpen(false);
     setIsDatesOpen(false);
-    setIsDestinationOpen(false);
+    setIsDestinationOpen(true);
   };
   const onCheckInOpen = () => {
     setIsGuestOpen(false);
@@ -47,16 +51,16 @@ const SearchBar = () => {
     setIsDatesOpen(true);
     setIsDestinationOpen(false);
   };
-  const onDestinationOpen = () => {
-    setIsGuestOpen(false);
+  const onGuestOpen = () => {
+    setIsGuestOpen(true);
     setIsCheckInOpen(false);
     setIsCheckOutOpen(false);
     setIsDatesOpen(false);
-    setIsDestinationOpen(true);
+    setIsDestinationOpen(false);
   };
 
   return (
-    <div className="search-bar-container">
+    <div className={`search-bar-container ${isMainFilterClose}`}>
       <div className="search-bar-nav">
         <div
           className={`nav-link ${isRightLinkActive ? "active" : ""}`}
@@ -75,12 +79,12 @@ const SearchBar = () => {
         <div className="search-section destination" onClick={onDestinationOpen}>
           <div className="text-top">Where</div>
           <div className="text-bottom">Search destinations</div>
-          {isDestinationOpen && <div>destination open</div>}
+          {isDestinationOpen && <WherePopup setWhoPopup={setWhoPopup} />}
         </div>
         {isRightLinkActive ? (
           <>
             <div className="search-section checkin" onClick={onCheckInOpen}>
-              <div className="text-top">CHeck In</div>
+              <div className="text-top">Check In</div>
               <div className="text-bottom">Add Dates</div>
               {isCheckInOpen && (
                 <div>
@@ -111,7 +115,7 @@ const SearchBar = () => {
         )}
         <div className="search-section search" onClick={onGuestOpen}>
           <div className={`search-icon-wrapper ${isGuestOpen ? "open" : ""}`}>
-            <IoSearch className="search-icon" size={35} />
+            <IoSearch className="search-icon" size={55} />
             <div className="search-text">Search</div>
           </div>
           <div className="sreach-text-wrapper">
