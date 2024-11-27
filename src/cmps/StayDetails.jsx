@@ -1,17 +1,19 @@
 import { useEffect, useRef, useState } from "react";
-import { placeList, dummyData } from "../../information_and_starters/stay";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { FaRegHeart } from "react-icons/fa";
 import { IoShareOutline } from "react-icons/io5";
 import { FaStar } from "react-icons/fa";
 import { stayService } from "../services/stay.service.remote";
+import { IoIosArrowForward } from "react-icons/io";
+import { IoClose } from "react-icons/io5";
 
 export function StayDetails() {
-  const navigate = useNavigate();
   const { id } = useParams();
   const [isTopNavVisible, setIsTopNavVisible] = useState(false);
   const stayRightRef = useRef(null);
   const [stay, setStay] = useState(null);
+  const [isShowMoreOpen, setIsShowMoreOpen] = useState(false);
+  const [isAmenitiesModalOpen, setIsAmenitiesModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,8 +45,6 @@ export function StayDetails() {
       console.log(error);
     }
   };
-
-  console.log(stay);
 
   return (
     <div className="stay-details-container">
@@ -106,7 +106,9 @@ export function StayDetails() {
                   <img src={stay.imgUrls[0]} />
                 </div>
                 <div className="stay-left-bottom-content">
-                  <div className="host-name">{stay.host.fullname}</div>
+                  <div className="host-name">
+                    Hosted by {stay.host.fullname}
+                  </div>
                   <div className="host-location">{stay.host.location}</div>
                 </div>
               </div>
@@ -118,7 +120,59 @@ export function StayDetails() {
               </div>
             </div>
           </div>
-          <div style={{ height: "1500px" }}>very height div,delete later</div>
+          <div className="stay-summary">
+            <div className="stay-summary-title">About this place</div>
+            <div
+              className={`stay-summary-content${isShowMoreOpen ? " open" : ""}`}
+            >
+              {stay.summary}
+            </div>
+            <div
+              className="stay-summary-show-more"
+              onClick={() => setIsShowMoreOpen(!isShowMoreOpen)}
+            >
+              <div>Show More</div>
+              <IoIosArrowForward />
+            </div>
+          </div>
+          <div className="stay-where-you-sleep">
+            <div className="stay-where-you-sleep-title">Where you’ll sleep</div>
+            <div className="stay-where-you-sleep-image">
+              <img src={stay.imgUrls[0]} alt="Where you will sleep" />
+            </div>
+            <div className="stay-where-you-sleep-subtitle">Bedroom</div>
+            <div className="stay-where-you-sleep-content">{`${stay.bedrooms} Queen bed`}</div>
+          </div>
+          <div className="stay-what-this-place-offer">
+            <div className="stay-what-this-place-offer-title">
+              What this place offers
+            </div>
+            <div className="stay-what-this-place-offer-list">
+              {stay.amenities
+                .filter((_, index) => index < 3)
+                .map((amenity) => (
+                  <div className="stay-what-this-place-offer-list-item">
+                    {amenity}
+                  </div>
+                ))}
+            </div>
+            <div
+              className="stay-what-this-place-offer-show-all"
+              onClick={() => setIsAmenitiesModalOpen(true)}
+            >{`Show all ${stay.amenities.length} Amenities`}</div>
+            {isAmenitiesModalOpen && 
+            <div className="stay-what-this-place-offer-modal-overlay">
+              <div className="stay-what-this-place-offer-modal">
+              <div className="modal-close">
+                <IoClose onClick={() => setIsAmenitiesModalOpen(false)}/>
+              </div>
+                {stay.amenities.map((amenity) => (
+                  <div>{amenity}</div>
+                ))}
+              </div>
+            </div>
+            }
+          </div>
         </>
       ) : (
         <div>Loading...</div>

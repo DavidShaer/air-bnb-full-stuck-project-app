@@ -188,4 +188,107 @@
       }
     }
   }
+
+  .stay-summary {
+    max-width: 500px;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 2px solid $gray1;
+    padding-bottom: 30px;
+    .stay-summary-title {
+      font-size: 26px;
+      font-weight: bold;
+    }
+    .stay-summary-content {
+      font-size: 18px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      &.open {
+        -webkit-line-clamp: unset !important;
+      }
+    }
+    .stay-summary-show-more {
+      display: flex;
+      gap: 5px;
+      font-weight: bold;
+      align-items: center;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+  .stay-where-you-sleep {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-bottom: 2px solid $gray1;
+    padding-bottom: 30px;
+
+    .stay-where-you-sleep-title {
+      font-size: 26px;
+      font-weight: bold;
+    }
+    .stay-where-you-sleep-image {
+      border-radius: 5px;
+      overflow: hidden;
+      width: 270px;
+      height: 180px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .stay-where-you-sleep-subtitle {
+      font-size: 22px;
+      font-weight: bold;
+    }
+  }
+  .stay-what-this-place-offer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-bottom: 2px solid $gray1;
+    padding-bottom: 30px;
+    margin-top: 20px;
+    .stay-what-this-place-offer-title {
+      font-size: 26px;
+      font-weight: bold;
+    }
+    .stay-what-this-place-offer-list {
+    }
+    .stay-what-this-place-offer-show-all {
+      font-size: 22px;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 1px solid #222;
+      width: fit-content;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      &:hover {
+        background-color: #f7f7f7;
+      }
+    }
+
+    .stay-what-this-place-offer-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.8);
+      .stay-what-this-place-offer-modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50%;
+        background-color: #fff;
+        box-shadow: 3px 1px 1px rgba(0,0,0,0.5);
+      }
+    }
+  }
 }
