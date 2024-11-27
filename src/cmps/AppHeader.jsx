@@ -25,7 +25,6 @@ export function AppHeader() {
       const scrollY = window.scrollY;
       if (scrollY > 50) {
         setIsMainFilterClose("close-header");
-        console.log(scrollY);
       } else {
         setIsMainFilterClose("");
       }

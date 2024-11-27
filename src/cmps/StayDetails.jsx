@@ -4,14 +4,14 @@ import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { FaRegHeart } from "react-icons/fa";
 import { IoShareOutline } from "react-icons/io5";
 import { FaStar } from "react-icons/fa";
+import { stayService } from "../services/stay.service.remote";
 
 export function StayDetails() {
   const navigate = useNavigate();
   const { id } = useParams();
   const [isTopNavVisible, setIsTopNavVisible] = useState(false);
   const stayRightRef = useRef(null);
-
-  console.log(isTopNavVisible);
+  const [stay, setStay] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +26,8 @@ export function StayDetails() {
       }
     };
 
+    getStayByIdHandler();
+
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -33,7 +35,16 @@ export function StayDetails() {
     };
   }, []);
 
-  const stay = dummyData.find((place) => place._id === id);
+  const getStayByIdHandler = async () => {
+    try {
+      const data = await stayService.getById(id);
+      setStay(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  console.log(stay);
 
   return (
     <div className="stay-details-container">
@@ -50,62 +61,68 @@ export function StayDetails() {
           </div>
         </div>
       )}
-      <div className="stay-details-top">
-        <div className="top-title">{stay.name}</div>
-        <div className="top-buttons">
-          <div className="button-save">
-            <FaRegHeart size={25} />
-            <div className="save-text">Save</div>
-          </div>
-          <div className="button-share">
-            <IoShareOutline size={25} />
-            <div className="share-text">Share</div>
-          </div>
-        </div>
-      </div>
-      <div className="stay-details-gallery">
-        <div className="gallery-grid">
-          <div className="left">
-            <img src={stay.imgUrls[0]} />
-          </div>
-          <div className="middle">
-            <img src={stay.imgUrls[1]} />
-            <img src={stay.imgUrls[2]} />
-          </div>
-          <div className="right">
-            <img src={stay.imgUrls[3]} />
-            <img src={stay.imgUrls[4]} />
-          </div>
-        </div>
-      </div>
-      <div className="stay-adress" ref={stayRightRef}>
-        <div className="stay-left">
-          <div className="stay-left-top">
-            <div className="stay-left-address">{stay.loc.address}</div>
-            <div className="stay-left-details">{`guests: ${stay.capacity} · bathrooms:${stay.bathrooms} · beds:${stay.bedrooms} · ${stay.roomType} `}</div>
-            <div className="stay-left-reviews">
-              <FaStar />
-              <div>{`5.0 · ${stay.reviews.length} reviews `}</div>
+      {stay ? (
+        <>
+          <div className="stay-details-top">
+            <div className="top-title">{stay.name}</div>
+            <div className="top-buttons">
+              <div className="button-save">
+                <FaRegHeart size={25} />
+                <div className="save-text">Save</div>
+              </div>
+              <div className="button-share">
+                <IoShareOutline size={25} />
+                <div className="share-text">Share</div>
+              </div>
             </div>
           </div>
-          <div className="stay-left-bottom">
-            <div className="stay-left-bottom-image">
-              <img src={stay.imgUrls[0]} />
-            </div>
-            <div className="stay-left-bottom-content">
-              <div className="host-name">{stay.host.fullname}</div>
-              <div className="host-location">{stay.host.location}</div>
+          <div className="stay-details-gallery">
+            <div className="gallery-grid">
+              <div className="left">
+                <img src={stay.imgUrls[0]} />
+              </div>
+              <div className="middle">
+                <img src={stay.imgUrls[1]} />
+                <img src={stay.imgUrls[2]} />
+              </div>
+              <div className="right">
+                <img src={stay.imgUrls[3]} />
+                <img src={stay.imgUrls[4]} />
+              </div>
             </div>
           </div>
-        </div>
-        <div className="stay-right">
-          <div className="stay-right-container">
-            <div className="stay-right-label">Coming October 8</div>
-            <div className="stay-right-button">Notify Me</div>
+          <div className="stay-adress" ref={stayRightRef}>
+            <div className="stay-left">
+              <div className="stay-left-top">
+                <div className="stay-left-address">{stay.loc.address}</div>
+                <div className="stay-left-details">{`guests: ${stay.capacity} · bathrooms:${stay.bathrooms} · beds:${stay.bedrooms} · ${stay.roomType} `}</div>
+                <div className="stay-left-reviews">
+                  <FaStar />
+                  <div>{`5.0 · ${stay.reviews.length} reviews `}</div>
+                </div>
+              </div>
+              <div className="stay-left-bottom">
+                <div className="stay-left-bottom-image">
+                  <img src={stay.imgUrls[0]} />
+                </div>
+                <div className="stay-left-bottom-content">
+                  <div className="host-name">{stay.host.fullname}</div>
+                  <div className="host-location">{stay.host.location}</div>
+                </div>
+              </div>
+            </div>
+            <div className="stay-right">
+              <div className="stay-right-container">
+                <div className="stay-right-label">Coming October 8</div>
+                <div className="stay-right-button">Notify Me</div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div style={{ height: "1500px" }}>very height div,delete later</div>
+          <div style={{ height: "1500px" }}>very height div,delete later</div>
+        </>
+      ) : (
+        <div>Loading...</div>
+      )}
     </div>
   );
 }
