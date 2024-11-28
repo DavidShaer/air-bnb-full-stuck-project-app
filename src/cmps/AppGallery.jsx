@@ -41,7 +41,15 @@ export function AppGallery() {
               <img src={place.imgUrls[0]} alt="" />
             </div>
           </div>
-          <div className="item-content">{place.name}</div>
+          <div className="item-content-wrapper">
+            <p className="top-line">
+              <span className="name_and_rate">{place.name}</span>
+              {/* <span>★{place.reviews[0].rate}</span> */}
+              {place.reviews[0]?.rate && <span>★{place.reviews[0].rate}</span>}
+            </p>
+            <p className="middle-line">{place.host.fullname}</p>
+            <p className="last-line">{place.price}$</p>
+          </div>
         </div>
       ))}
       {isModalOpen && (

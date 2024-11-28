@@ -1,93 +1,156 @@
+// .app-gallery {
+//   // display: flex;
+//   display: grid;
+//   // grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+//   grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+
+//   align-items: start;
+//   justify-content: stretch;
+//   gap: 10px;
+//   // flex-wrap: wrap;
+//   .gallery-item {
+//     overflow: hidden;
+//     // width: fit-content;
+//     width: 100%; 
+
+//     .item-image-wrapper {
+//       position: relative;
+//       cursor: pointer;
+//       width: fit-content;
+//       .item-share-icon {
+//         position: absolute;
+//         top: 7px;
+//         left: 7px;
+//         font-size: 30px;
+//         background-color: $gray3;
+//         color: $gray4;
+//         border-radius: 50%;
+//         padding: 5px;
+//         cursor: pointer;
+//         transition: all 0.25s ease;
+//         &:hover {
+//           color: $clr5;
+//         }
+//       }
+//       .item-image {
+//         width: 300px;
+//         height: 285px;
+//         border-radius: 10px;
+//         overflow: hidden;
+//         img {
+//           width: 100%;
+//           height: 100%;
+//         }
+//         aspect-ratio: 1/0.7;
+//       }
+//     }
+//   }
+//   .modal-overlay {
+//     position: fixed;
+//     width: 100vw;
+//     height: 100vh;
+//     top: 0;
+//     left: 0;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     background-color: rgba(0, 0, 0, 0.6);
+//     .gallery-modal {
+//       max-width: 400px;
+//       background-color: #fff;
+//       border-radius: 10px;
+//       padding: 15px;
+//       display: flex;
+//       flex-direction: column;
+//       gap: 15px;
+//       .modal-close-icon {
+//         cursor: pointer;
+//       }
+//       .topText {
+//       }
+//       .modal-info {
+//         display: flex;
+//         align-items: center;
+//         gap: 15px;
+//         .modal-image-wrapper {
+//           width: 50px;
+//           height: 40px;
+//           border-radius: 5px;
+//           overflow: hidden;
+//           img {
+//             width: 100%;
+//             height: 100%;
+//           }
+//         }
+//         .info-text {
+//         }
+//       }
+//       .share-media-wrapper {
+//         .gallery-btn {
+//           width: 170px;
+//           border-radius: 5px;
+//         }
+//       }
+//     }
+//   }
+// }
+
+
 .app-gallery {
-  // display: flex;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
   align-items: start;
   justify-content: stretch;
-  gap: 20px;
-  // flex-wrap: wrap;
-  .gallery-item {
-    // width: 200px;
-    // height: 280px;
-    overflow: hidden;
+  gap: 15px; /* Adjusted gap */
+  max-width: 1200px; /* Constrain width */
+  margin: 0 auto; /* Center the gallery */
+}
 
-    .item-image-wrapper {
-      position: relative;
-      cursor: pointer;
-      .item-share-icon {
-        position: absolute;
-        top: 7px;
-        left: 7px;
-        font-size: 30px;
-        background-color: $gray3;
-        color: $gray4;
-        border-radius: 50%;
-        padding: 5px;
-        cursor: pointer;
-        transition: all 0.25s ease;
-        &:hover {
-          color: $clr5;
-        }
-      }
-      .item-image {
-        // width: 200px;
-        // height: 200px;
-        border-radius: 10px;
-        overflow: hidden;
-        img {
-          width: 100%;
-          height: 100%;
-        }
-        aspect-ratio: 1/0.7;
-      }
-    }
+.gallery-item {
+  width: 100%; /* Match grid cell width */
+  // overflow: hidden;
+}
+
+.item-image-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.item-image {
+  // width: 100%; /* Responsive width */
+  // height: auto; /* Maintain aspect ratio */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.item-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  p {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    font-weight: 300;
   }
-  .modal-overlay {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
+
+  .top-line {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.6);
-    .gallery-modal {
-      max-width: 400px;
-      background-color: #fff;
-      border-radius: 10px;
-      padding: 15px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      .modal-close-icon {
-        cursor: pointer;
-      }
-      .topText {
-      }
-      .modal-info {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        .modal-image-wrapper {
-          width: 50px;
-          height: 40px;
-          border-radius: 5px;
-          overflow: hidden;
-          img {
-            width: 100%;
-            height: 100%;
-          }
-        }
-        .info-text {
-        }
-      }
-      .share-media-wrapper {
-        .gallery-btn {
-          width: 170px;
-          border-radius: 5px;
-        }
-      }
-    }
+    justify-content: space-between;
+  }
+  .middle-line {
+    color: $gray5;
+  }
+  .last-line {
+    // font-size: 14px;
   }
 }
+
+
+// <div className="item-content-wrapper">
+// <p className="top-line">
+//   <span className="name_and_rate">{place.name}</span>
+//   <span>{place.reviews[0].rate}</span>
+// </p>
+// <p className="middle-line">{place.host.fullname}</p>
+// <p className="last-line">{place.price}</p>

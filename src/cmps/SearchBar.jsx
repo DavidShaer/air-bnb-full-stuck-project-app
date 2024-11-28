@@ -3,7 +3,7 @@ import { IoSearch } from "react-icons/io5";
 import WhoPopup from "./searchPopups/WhoPopup";
 import WherePopup from "./searchPopups/WherePopup";
 
-const SearchBar = ({ isMainFilterClose }) => {
+const SearchBar = ({ isMainFilterClose, setWhere }) => {
   const [isRightLinkActive, setIsRightLinkActive] = useState(true);
   const [isGuestOpen, setIsGuestOpen] = useState(false);
   const [isCheckInOpen, setIsCheckInOpen] = useState(false);
@@ -79,7 +79,7 @@ const SearchBar = ({ isMainFilterClose }) => {
         <div className="search-section destination" onClick={onDestinationOpen}>
           <div className="text-top">Where</div>
           <div className="text-bottom">Search destinations</div>
-          {isDestinationOpen && <WherePopup setWhoPopup={setWhoPopup} />}
+          {isDestinationOpen && <WherePopup onSetWhere={setWhere} />}
         </div>
         {isRightLinkActive ? (
           <>
