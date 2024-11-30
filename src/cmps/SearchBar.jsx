@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { IoSearch } from "react-icons/io5";
 import WhoPopup from "./searchPopups/WhoPopup";
 import WherePopup from "./searchPopups/WherePopup";
@@ -18,6 +18,22 @@ const SearchBar = ({ isMainFilterClose, setWhere }) => {
     infants: 0,
     pets: 0,
   });
+  // Add useEffect and ref
+  const searchBarRef = useRef(null);
+  const whereRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (whereRef.current && !whereRef.current.contains(event.target)) {
+        setIsDestinationOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const isGuestsEmpty = Object.entries(whoPopup).every(
     ([category, count]) => count === 0
@@ -60,7 +76,10 @@ const SearchBar = ({ isMainFilterClose, setWhere }) => {
   };
 
   return (
-    <div className={`search-bar-container ${isMainFilterClose}`}>
+    <div
+      className={`search-bar-container ${isMainFilterClose}`}
+      ref={searchBarRef}
+    >
       <div className="search-bar-nav">
         <div
           className={`nav-link ${isRightLinkActive ? "active" : ""}`}
@@ -76,8 +95,13 @@ const SearchBar = ({ isMainFilterClose, setWhere }) => {
         </div>
       </div>
       <div className="search-bar">
-        <div className="search-section destination" onClick={onDestinationOpen}>
-          <div className="text-top">Where</div>
+        <div
+          // className="search-section destination"
+          className={`search-section destination ${isDestinationOpen ? "open" : ""}`}
+          onClick={onDestinationOpen}
+          ref={whereRef}
+        >
+          <div className="text-top">Where</div> 
           <div className="text-bottom">Search destinations</div>
           {isDestinationOpen && <WherePopup onSetWhere={setWhere} />}
         </div>

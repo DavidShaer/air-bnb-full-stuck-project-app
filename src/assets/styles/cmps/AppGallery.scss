@@ -1,156 +1,81 @@
-// .app-gallery {
-//   // display: flex;
-//   display: grid;
-//   // grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
-//   grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
-
-//   align-items: start;
-//   justify-content: stretch;
-//   gap: 10px;
-//   // flex-wrap: wrap;
-//   .gallery-item {
-//     overflow: hidden;
-//     // width: fit-content;
-//     width: 100%; 
-
-//     .item-image-wrapper {
-//       position: relative;
-//       cursor: pointer;
-//       width: fit-content;
-//       .item-share-icon {
-//         position: absolute;
-//         top: 7px;
-//         left: 7px;
-//         font-size: 30px;
-//         background-color: $gray3;
-//         color: $gray4;
-//         border-radius: 50%;
-//         padding: 5px;
-//         cursor: pointer;
-//         transition: all 0.25s ease;
-//         &:hover {
-//           color: $clr5;
-//         }
-//       }
-//       .item-image {
-//         width: 300px;
-//         height: 285px;
-//         border-radius: 10px;
-//         overflow: hidden;
-//         img {
-//           width: 100%;
-//           height: 100%;
-//         }
-//         aspect-ratio: 1/0.7;
-//       }
-//     }
-//   }
-//   .modal-overlay {
-//     position: fixed;
-//     width: 100vw;
-//     height: 100vh;
-//     top: 0;
-//     left: 0;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     background-color: rgba(0, 0, 0, 0.6);
-//     .gallery-modal {
-//       max-width: 400px;
-//       background-color: #fff;
-//       border-radius: 10px;
-//       padding: 15px;
-//       display: flex;
-//       flex-direction: column;
-//       gap: 15px;
-//       .modal-close-icon {
-//         cursor: pointer;
-//       }
-//       .topText {
-//       }
-//       .modal-info {
-//         display: flex;
-//         align-items: center;
-//         gap: 15px;
-//         .modal-image-wrapper {
-//           width: 50px;
-//           height: 40px;
-//           border-radius: 5px;
-//           overflow: hidden;
-//           img {
-//             width: 100%;
-//             height: 100%;
-//           }
-//         }
-//         .info-text {
-//         }
-//       }
-//       .share-media-wrapper {
-//         .gallery-btn {
-//           width: 170px;
-//           border-radius: 5px;
-//         }
-//       }
-//     }
-//   }
-// }
-
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+}
 
 .app-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
-  align-items: start;
-  justify-content: stretch;
-  gap: 15px; /* Adjusted gap */
-  max-width: 1200px; /* Constrain width */
-  margin: 0 auto; /* Center the gallery */
-}
-
-.gallery-item {
-  width: 100%; /* Match grid cell width */
-  // overflow: hidden;
-}
-
-.item-image-wrapper {
-  position: relative;
-  cursor: pointer;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  width: 100%; /* Use width instead of max-width */
+  box-sizing: border-box; /* Includes padding in width calculation */
 }
 
 .item-image {
-  // width: 100%; /* Responsive width */
-  // height: auto; /* Maintain aspect ratio */
+  height: 300px; /* Set a constant height */
+  width: auto; /* Allow proportional width resizing */
+  max-width: 100%; /* Ensure it doesn't exceed container's width */
+  object-fit: contain; /* Resize proportionally without cropping */
   border-radius: 10px;
-  overflow: hidden;
 }
 
-.item-content-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 0px;
-  p {
-    margin: 0;
-    padding: 0;
-    font-size: 15px;
-    font-weight: 300;
+/* Adjust grid and images for smaller screens */
+@media (max-width: 680px) {
+  .app-gallery {
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 10px;
   }
 
-  .top-line {
-    display: flex;
-    justify-content: space-between;
-  }
-  .middle-line {
-    color: $gray5;
-  }
-  .last-line {
-    // font-size: 14px;
+  .item-image {
+    height: 300px; /* Adjust height for smaller screens */
+    width: auto; /* Keep proportional resizing */
   }
 }
 
 
-// <div className="item-content-wrapper">
-// <p className="top-line">
-//   <span className="name_and_rate">{place.name}</span>
-//   <span>{place.reviews[0].rate}</span>
-// </p>
-// <p className="middle-line">{place.host.fullname}</p>
-// <p className="last-line">{place.price}</p>
+
+
+
+// body {
+//   margin: 0;
+//   padding: 0;
+//   overflow-x: hidden; // Prevents horizontal scrolling
+// }
+
+// .app-gallery {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+//   gap: 16px;
+//   width: 100%; // Use width instead of max-width
+//   box-sizing: border-box; // Important! Includes padding in width calculation
+// }
+
+// .item-image {
+//   width: 100%;
+//   height: 100%;
+//   aspect-ratio: 1 / 1;
+//   object-fit: cover;
+//   border-radius: 10px;
+// }
+
+// // @media (max-width: 480px) {
+//   @media (max-width: 680px) {
+//     .app-gallery {
+//       grid-template-columns: 1fr;
+//       gap: 10px;
+//     }
+//   }
+
+
+
+
+
+  // @media (max-width: 768px) {
+    // @media (max-width: 1700px) {
+    // .app-gallery {
+    //   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    //   gap: 12px;
+    //   padding: 12px;
+    // }
+  // }
