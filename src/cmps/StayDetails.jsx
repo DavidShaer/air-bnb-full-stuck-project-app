@@ -6,6 +6,7 @@ import { FaStar } from "react-icons/fa";
 import { stayService } from "../services/stay.service.remote";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
+import GoogleMapReact from "google-map-react";
 
 export function StayDetails() {
   const { id } = useParams();
@@ -56,8 +57,8 @@ export function StayDetails() {
             <NavLink to="air-bnb-full-stuck-project">Location</NavLink>
           </div>
           <div className="top-nav-right">
-            <div className="top-nav-right-label">Coming October 8</div>
-            <div className="top-nav-right-button">Notify Me</div>
+            <div className="top-nav-right-label">{`${stay.price} Per Guest`}</div>
+            <div className="top-nav-right-button">Request</div>
           </div>
         </div>
       )}
@@ -150,8 +151,11 @@ export function StayDetails() {
             <div className="stay-what-this-place-offer-list">
               {stay.amenities
                 .filter((_, index) => index < 3)
-                .map((amenity) => (
-                  <div className="stay-what-this-place-offer-list-item">
+                .map((amenity, index) => (
+                  <div
+                    className="stay-what-this-place-offer-list-item"
+                    key={index}
+                  >
                     {amenity}
                   </div>
                 ))}
@@ -160,18 +164,60 @@ export function StayDetails() {
               className="stay-what-this-place-offer-show-all"
               onClick={() => setIsAmenitiesModalOpen(true)}
             >{`Show all ${stay.amenities.length} Amenities`}</div>
-            {isAmenitiesModalOpen && 
-            <div className="stay-what-this-place-offer-modal-overlay">
-              <div className="stay-what-this-place-offer-modal">
-              <div className="modal-close">
-                <IoClose onClick={() => setIsAmenitiesModalOpen(false)}/>
+            {isAmenitiesModalOpen && (
+              <div className="stay-what-this-place-offer-modal-overlay">
+                <div className="stay-what-this-place-offer-modal">
+                  <div className="modal-close">
+                    <IoClose
+                      onClick={() => setIsAmenitiesModalOpen(false)}
+                      size={24}
+                    />
+                  </div>
+                  <div className="modal-title">What this place offers</div>
+                  <div className="modal-amenity-list">
+                    {stay.amenities.map((amenity, index) => (
+                      <div className="modal-amenity-item" key={index}>
+                        {amenity}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-                {stay.amenities.map((amenity) => (
-                  <div>{amenity}</div>
-                ))}
-              </div>
+            )}
+          </div>
+          <div className="stay-reviews-container">
+            <div className="stay-reviews-title">Reviews</div>
+            <div className="stay-reviews-list">
+              {stay.reviews.map((review, index) => (
+                <div key={index} className="stay-review-item">
+                  <div className="stay-review-author">
+                    <div className="author-avatar">
+                      <img src={review.by.imgUrl} alt="alt" />
+                    </div>
+                    <div className="author-name">{review.by.fullname}</div>
+                  </div>
+                  <div className="stay-review-date">{` Written at: ${new Date(
+                    review.at
+                  ).toLocaleDateString()}`}</div>
+                  <div className="stay-review-content">{review.txt}</div>
+                </div>
+              ))}
             </div>
-            }
+          </div>
+          <div className="stay-location-container">
+            <div className="stay-location-title">Where you’ll be</div>
+            <div className="stay-location-subtitle">{stay.loc.address}</div>
+            <div style={{ height: "80vh", width: "80%" }}>
+              <GoogleMapReact
+                bootstrapURLKeys={{ key: "" }}
+                defaultCenter={{
+                  lng: Math.abs(stay.loc.lan || stay.loc.lng),
+                  lat: Math.abs(stay.loc.lat),
+                }}
+                defaultZoom={11}
+              >
+              </GoogleMapReact>
+            </div>
           </div>
         </>
       ) : (

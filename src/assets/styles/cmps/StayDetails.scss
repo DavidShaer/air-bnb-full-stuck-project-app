@@ -5,10 +5,11 @@
   display: flex;
   flex-direction: column;
   .top-nav {
-    height: 50px;
+    height: 100px;
     width: 100vw;
     color: #fff;
-    background-color: $gray1;
+    background-color: #fff;
+    border-bottom: 1px solid $gray1;
     position: fixed;
     top: 0;
     left: 0;
@@ -21,6 +22,11 @@
       align-items: center;
       justify-content: space-between;
       gap: 10px;
+      a {
+        color: #222;
+        text-decoration: none;
+        font-weight: bold;
+      }
     }
     .top-nav-right {
       display: flex;
@@ -28,6 +34,13 @@
       justify-content: space-between;
       gap: 10px;
       margin-right: 50px;
+      color: #222;
+      .top-nav-right-label {
+
+      }
+      .top-nav-right-button {
+
+      }
     }
   }
   .stay-details-top {
@@ -279,16 +292,109 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background-color: rgba(0,0,0,0.8);
+      background-color: rgba(0, 0, 0, 0.6);
       .stay-what-this-place-offer-modal {
         position: fixed;
         top: 50%;
         left: 50%;
-        transform: translateX(-50%);
-        width: 50%;
+        width: 80%;
+        height: 70%;
+        transform: translate(-50%, -50%);
         background-color: #fff;
-        box-shadow: 3px 1px 1px rgba(0,0,0,0.5);
+        box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.3);
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        padding: 24px;
+        gap: 24px;
+        .modal-close {
+          cursor: pointer;
+        }
+        .modal-title {
+          font-size: 26px;
+          font-weight: bold;
+        }
+        .modal-amenity-list {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          overflow-y: scroll;
+          .modal-amenity-item {
+            border-bottom: 1px solid #ddd;
+            font-size: 22px;
+            font-weight: 400;
+          }
+        }
       }
+    }
+  }
+  .stay-reviews-container {
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-bottom: 2px solid $gray1;
+    padding-bottom: 30px;
+    .stay-reviews-title {
+      font-size: 26px;
+      font-weight: bold;
+    }
+    .stay-reviews-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      .stay-review-item {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .stay-review-author {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          .author-name {
+            font-size: 22px;
+            font-weight: 400;
+          }
+          .author-avatar {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-weight: bold;
+            img {
+              border-radius: 50%;
+              border: 2px solid #999;
+              width: 48px;
+              height: 48px;
+            }
+          }
+        }
+        .stay-review-date {
+          font-weight: bold;
+        }
+        .stay-review-content {
+          font-size: 18px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+  .stay-location-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-bottom: 2px solid $gray1;
+    padding-bottom: 30px;
+    margin-top: 20px;
+    align-items: center;
+    .stay-location-title {
+      font-size: 26px;
+      font-weight: bold;
+      align-self: flex-start;
+    }
+    .stay-location-subtitle {
+      font-size: 22px;
+      font-weight: bold;
+      align-self: flex-start;
     }
   }
 }
