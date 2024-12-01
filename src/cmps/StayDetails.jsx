@@ -215,8 +215,7 @@ export function StayDetails() {
                   lat: Math.abs(stay.loc.lat),
                 }}
                 defaultZoom={11}
-              >
-              </GoogleMapReact>
+              ></GoogleMapReact>
             </div>
           </div>
         </>

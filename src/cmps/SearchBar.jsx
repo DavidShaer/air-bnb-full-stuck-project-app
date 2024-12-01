@@ -2,14 +2,20 @@ import React, { useState, useRef, useEffect } from "react";
 import { IoSearch } from "react-icons/io5";
 import WhoPopup from "./searchPopups/WhoPopup";
 import WherePopup from "./searchPopups/WherePopup";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import CheckInOutCalendar from "./Calender";
 
-const SearchBar = ({ isMainFilterClose, setWhere }) => {
+const SearchBar = ({ isMainFilterClose, SearchClicked }) => {
   const [isRightLinkActive, setIsRightLinkActive] = useState(true);
   const [isGuestOpen, setIsGuestOpen] = useState(false);
   const [isCheckInOpen, setIsCheckInOpen] = useState(false);
   const [isCheckOutOpen, setIsCheckOutOpen] = useState(false);
   const [isDatesOpen, setIsDatesOpen] = useState(false);
   const [isDestinationOpen, setIsDestinationOpen] = useState(false);
+  const [checkInDate, setCheckInDate] = useState(null);
+  const [checkOutDate, setCheckoutDate] = useState(null);
+  const [where, setWhere] = useState("");
 
   // set
   const [whoPopup, setWhoPopup] = useState({
@@ -75,6 +81,27 @@ const SearchBar = ({ isMainFilterClose, setWhere }) => {
     setIsDestinationOpen(false);
   };
 
+  const setCheckIn = (checkIn) => {
+    setCheckInDate(checkIn);
+  };
+  const setCheckOut = (checkOut) => {
+    setCheckoutDate(checkOut);
+  };
+  const onSearchClick = () => {
+    // Implement your search logic here
+    console.log("Search button clicked");
+    console.log("Where:", where);
+    console.log("Check-in Date:", checkInDate);
+    console.log("Check-out Date:", checkOutDate);
+    console.log("Guests:", whoPopup);
+    setIsGuestOpen(false);
+    setIsCheckInOpen(false);
+    setIsCheckOutOpen(false);
+    setIsDatesOpen(false);
+    setIsDestinationOpen(false);
+    SearchClicked([where, checkInDate, checkOutDate, whoPopup]);
+  };
+
   return (
     <div
       className={`search-bar-container ${isMainFilterClose}`}
@@ -95,38 +122,57 @@ const SearchBar = ({ isMainFilterClose, setWhere }) => {
         </div>
       </div>
       <div className="search-bar">
+        {/* where */}
         <div
           // className="search-section destination"
-          className={`search-section destination ${isDestinationOpen ? "open" : ""}`}
+          className={`search-section destination ${
+            isDestinationOpen ? "open" : ""
+          }`}
           onClick={onDestinationOpen}
           ref={whereRef}
         >
-          <div className="text-top">Where</div> 
+          <div className="text-top">Where</div>
           <div className="text-bottom">Search destinations</div>
           {isDestinationOpen && <WherePopup onSetWhere={setWhere} />}
         </div>
+
         {isRightLinkActive ? (
           <>
+            {/* checkin */}
             <div className="search-section checkin" onClick={onCheckInOpen}>
               <div className="text-top">Check In</div>
-              <div className="text-bottom">Add Dates</div>
+              <div className={`text-bottom ${checkInDate ? "date-text" : ""}`}>
+                {checkInDate ? checkInDate.toLocaleDateString() : "Add Dates"}
+              </div>
+
               {isCheckInOpen && (
                 <div>
-                  <input type="date" />
+                  <CheckInOutCalendar
+                    onSetCheckIn={setCheckIn}
+                    onSetCheckOut={setCheckOut}
+                  />
                 </div>
               )}
             </div>
+
+            {/* checkout */}
             <div className="search-section checkout" onClick={onCheckOutOpen}>
               <div className="text-top">Check Out</div>
-              <div className="text-bottom">Add Dates</div>
+              <div className={`text-bottom ${checkOutDate ? "date-text" : ""}`}>
+                {checkOutDate ? checkOutDate.toLocaleDateString() : "Add Dates"}
+              </div>
               {isCheckOutOpen && (
                 <div>
-                  <input type="date" />
+                  <CheckInOutCalendar
+                    onSetCheckIn={setCheckIn}
+                    onSetCheckOut={setCheckOut}
+                  />
                 </div>
               )}
             </div>
           </>
         ) : (
+          // experiences
           <div className="search-section date" onClick={onDatesOpen}>
             <div className="text-top">Date</div>
             <div className="text-bottom">Add Dates</div>
@@ -137,8 +183,14 @@ const SearchBar = ({ isMainFilterClose, setWhere }) => {
             )}
           </div>
         )}
+
+        {/* who */}
         <div className="search-section search" onClick={onGuestOpen}>
-          <div className={`search-icon-wrapper ${isGuestOpen ? "open" : ""}`}>
+          {/* search click */}
+          <div
+            className={`search-icon-wrapper ${isGuestOpen ? "open" : ""}`}
+            onClick={onSearchClick}
+          >
             <IoSearch className="search-icon" size={55} />
             <div className="search-text">Search</div>
           </div>
@@ -152,7 +204,7 @@ const SearchBar = ({ isMainFilterClose, setWhere }) => {
                   {Object.entries(whoPopup)
                     .filter(([category, count]) => count !== 0)
                     .map(([category, count]) => (
-                      <span>{`${category}: ${count}`}</span>
+                      <span key={category}>{`${category}: ${count}`}</span>
                     ))}
                 </div>
               )}

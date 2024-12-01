@@ -21,14 +21,14 @@ export function AppIndex() {
     const icon = image_name.replace(".jpg", "").replace("_", "");
     dispatch(setFilterBy({ ...filterBy, icon }));
   }
-  function whereClickHandler(where) {
-    console.log("where ", where);
-    dispatch(setFilterBy({ ...filterBy, where }));
+  function SearchClickeHandle(searchParams) {
+    console.log("searchParams ", searchParams);
+    dispatch(setFilterBy({ ...filterBy, searchParams }));
   }
 
   return (
     <div className="app-container">
-      <AppHeader setWhere={whereClickHandler} />
+      <AppHeader SearchClicked={SearchClickeHandle} />
       <AppFilterNav categoryClickHandler={categoryClickHandler} />
       <AppGallery />
       <AppFooter />

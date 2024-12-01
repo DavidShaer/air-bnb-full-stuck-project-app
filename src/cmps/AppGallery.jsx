@@ -33,10 +33,10 @@ export function AppGallery() {
           onClick={() => hundleStayClick(place._id)}
         >
           <div className="item-image-wrapper">
-            <MdIosShare
+            {/* <MdIosShare
               className="item-share-icon"
               onClick={() => modalOpenHandler(place._id)}
-            />
+            /> */}
             <div className="item-image">
               <img src={place.imgUrls[0]} alt="" />
             </div>

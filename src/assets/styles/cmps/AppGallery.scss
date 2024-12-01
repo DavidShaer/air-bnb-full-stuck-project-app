@@ -6,18 +6,46 @@ body {
 
 .app-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 311px));
+  // gap: 16px;
   width: 100%; /* Use width instead of max-width */
   box-sizing: border-box; /* Includes padding in width calculation */
-}
+  justify-content: center;
+  align-content: center;
+  gap: 15px;
 
-.item-image {
+  .gallery-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    flex-basis: 300px;
+    gap: 10px;
+    
+    .item-content-wrapper{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      > * { /* Direct children selector */
+        margin: 0; /* Reset margin */
+        padding: 0; /* Reset padding */
+      }
+      .middle-line{
+        color: $gray2;
+      }
+    }
+  }
+
+  .item-image {
   height: 300px; /* Set a constant height */
-  width: auto; /* Allow proportional width resizing */
+  width: 300px; /* Allow proportional width resizing */
   max-width: 100%; /* Ensure it doesn't exceed container's width */
   object-fit: contain; /* Resize proportionally without cropping */
-  border-radius: 10px;
+
+  img {
+    height: 100%;
+    border-radius: 15px;
+  }
 }
 
 /* Adjust grid and images for smaller screens */
@@ -29,53 +57,8 @@ body {
 
   .item-image {
     height: 300px; /* Adjust height for smaller screens */
-    width: auto; /* Keep proportional resizing */
+    width: 300px; /* Keep proportional resizing */
   }
 }
+}
 
-
-
-
-
-// body {
-//   margin: 0;
-//   padding: 0;
-//   overflow-x: hidden; // Prevents horizontal scrolling
-// }
-
-// .app-gallery {
-//   display: grid;
-//   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-//   gap: 16px;
-//   width: 100%; // Use width instead of max-width
-//   box-sizing: border-box; // Important! Includes padding in width calculation
-// }
-
-// .item-image {
-//   width: 100%;
-//   height: 100%;
-//   aspect-ratio: 1 / 1;
-//   object-fit: cover;
-//   border-radius: 10px;
-// }
-
-// // @media (max-width: 480px) {
-//   @media (max-width: 680px) {
-//     .app-gallery {
-//       grid-template-columns: 1fr;
-//       gap: 10px;
-//     }
-//   }
-
-
-
-
-
-  // @media (max-width: 768px) {
-    // @media (max-width: 1700px) {
-    // .app-gallery {
-    //   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    //   gap: 12px;
-    //   padding: 12px;
-    // }
-  // }

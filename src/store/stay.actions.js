@@ -1,31 +1,6 @@
 import { stayService } from '../services/stay.service.remote'
 import { SET_STAYS, SET_STAY, SET_FILTER_BY } from './stay.reducer'
 
-
-
-
-// export function filterByIcon(icon) {
-//     return async (dispatch) => {
-//         try {
-//             const stays = await stayService.query({ icon: icon })
-//             dispatch({ type: SET_STAYS, stays })
-//         } catch (err) {
-//             console.error('Error loading stays:', err)
-//         }
-//     }
-// }
-
-// export function filterByWhere(where) {
-//     return async (dispatch) => {
-//         try {
-//             const stays = await stayService.query({ where: where })
-//             dispatch({ type: SET_STAYS, stays })
-//         } catch (err) {
-//             console.error('Error loading stays:', err)
-//         }
-//     }
-// }
-
 export function loadStays(filterBy) {
     return async (dispatch) => {
         try {

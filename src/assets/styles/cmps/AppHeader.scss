@@ -119,20 +119,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 10px;
-  // .search-bar-nav {
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   gap: 12px;
-  //   .nav-link {
-  //     cursor: pointer;
-  //     color: $gray5;
-  //     &.active {
-  //       font-weight: bold;
-  //       color: $clr7;
-  //     }
-  //   }
-  // }
+
   .search-bar {
     display: flex;
     height: 70px;
@@ -141,7 +128,9 @@
     box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1),
       0 1px 2px 0 rgba(0, 0, 0, 0.08);
     border-radius: 90px;
-    width: 75vw;
+    // width: 75vw;
+    width: 940px;
+
 
     .popup-where {
       display: grid;
@@ -210,6 +199,7 @@
         align-items: center;
         transition: all 1s ease;
         border-radius: 90px;
+        cursor: pointer;
         .search-icon {
           color: $clr6;
           border-radius: 50%;
@@ -319,6 +309,8 @@
       }
     }
 
+
+
     .date,
     .checkin,
     .checkout,
@@ -338,6 +330,11 @@
         font-size: 0.8rem;
         margin-left: 35px;
       }
+      .date-text {
+        color: $clr7;
+        font-size: 1rem;
+      }
+
     }
   }
 }

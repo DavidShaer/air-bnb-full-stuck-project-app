@@ -12,7 +12,7 @@ import { IoLogoCodepen } from "react-icons/io";
 import { RxAvatar } from "react-icons/rx";
 import SearchBar from "./SearchBar.jsx";
 
-export function AppHeader({ setWhere }) {
+export function AppHeader({ SearchClicked }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   // const user = useSelector((storeState) => storeState.userModule.user);
@@ -114,7 +114,10 @@ export function AppHeader({ setWhere }) {
           </span>
         )}
       </nav>
-      <SearchBar isMainFilterClose={isMainFilterClose} setWhere={setWhere} />
+      <SearchBar
+        isMainFilterClose={isMainFilterClose}
+        SearchClicked={SearchClicked}
+      />
     </header>
   );
 }
