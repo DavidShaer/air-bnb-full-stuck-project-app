@@ -6,7 +6,7 @@ export const SET_FILTER_BY = 'SET_FILTER_BY'
 const initialState = {
     stays: [],
     currentStay: null,
-    filterBy: { icon: "", where: "" },
+    filterBy: { icon: "", where: "", checkIn: "", checkOut: "", adults: 0, childrens: 0, infants: 0, pets: 0 },
     // ... other initial state properties ...
 }
 

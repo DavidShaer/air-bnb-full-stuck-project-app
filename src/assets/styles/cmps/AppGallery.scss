@@ -33,6 +33,10 @@ body {
       .middle-line{
         color: $gray2;
       }
+      .top-line{
+        display: flex;
+        justify-content: space-between;
+      }
     }
   }
 
