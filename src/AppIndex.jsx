@@ -21,9 +21,25 @@ export function AppIndex() {
     const icon = image_name.replace(".jpg", "").replace("_", "");
     dispatch(setFilterBy({ ...filterBy, icon }));
   }
-  function SearchClickeHandle(searchParams) {
-    console.log("searchParams ", searchParams);
-    dispatch(setFilterBy({ ...filterBy, searchParams }));
+  function SearchClickeHandle(searchInfoArr) {
+    const where = searchInfoArr[0];
+    const checkIn = searchInfoArr[1];
+    const checkOut = searchInfoArr[2];
+    const who = searchInfoArr[3];
+    const { adults, childrens, infants, pets } = who;
+    dispatch(
+      setFilterBy({
+        ...filterBy,
+        where,
+        checkIn,
+        checkOut,
+        who,
+        adults,
+        childrens,
+        infants,
+        pets,
+      })
+    );
   }
 
   return (
