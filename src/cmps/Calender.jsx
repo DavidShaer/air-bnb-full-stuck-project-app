@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import "./CalendarStyles.css"; // Custom styles
+// import "./CalendarStyles.css"; // Custom styles
 
 export function CheckInOutCalendar({ onSetCheckIn, onSetCheckOut }) {
   const [checkIn, setcheckIn] = useState(null);

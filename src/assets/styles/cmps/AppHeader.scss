@@ -113,6 +113,23 @@
     background-color: aqua;
   }
 
+
+
+// .inactive-section {
+//   background-color: $gray1;
+// }
+.checkout.active-section {
+  border-radius: 90px !important;
+}
+.checkin.active-section {
+  border-radius: 90px !important;
+}
+
+.active-section {
+  background-color: white; /* or any other color you prefer for the active section */
+  border-radius: 90px;
+}
+
 .search-bar-container {
   display: grid;
   align-items: center;
@@ -120,9 +137,13 @@
   justify-content: center;
   gap: 10px;
 
+  .is-search-bar-open {
+    background-color: $gray1;
+  }
+
   .search-bar {
     display: flex;
-    height: 70px;
+    height: 80px;
     // align-items: center;
     border: 1px solid rgb(221, 221, 221);
     box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1),
@@ -131,8 +152,10 @@
     // width: 75vw;
     width: 850px;
 
-
     .popup-where {
+      // &:hover {
+      //   background-color: $gray1;
+      // }
       display: grid;
       position: absolute;
       top: 207px;
@@ -172,18 +195,16 @@
         cursor: pointer;
         &:hover {
           background-color: $gray1;
+          border-radius: 20px;
         }
-        
 
       }
     }
 
-    .search-section {
-      
-      // padding: 0px 10px;
-      // padding-left: 30px;
-    }
     .search {
+      //&:hover {//        background-color: $gray1;
+//      }
+
       flex-direction: row-reverse;
       flex: 2;
       display: flex;
@@ -226,6 +247,7 @@
         }
       }
       // who
+
       .sreach-text-wrapper { 
         display: flex;
         flex-direction: column;
@@ -241,7 +263,17 @@
           font-size: 0.89rem;
           margin-left: 35px;
         }
+        .where-text {
+          color: $clr1;
+        }
+        .guestsDetails {
+          display: flex;
+          color: $clr7;
+          font-size: 1rem;
+        }
       }
+
+
       .popup-who {
         position: absolute;
         right: 0;
@@ -291,13 +323,31 @@
       }
     }
     .date {
-      border-left: 1px solid $clr1;
+      border-left: 1px solid $gray2;
       flex: 2;
     }
     .checkin {
-      border-left: 1px solid $gray1;
+      height: 100%;
       flex: 1;
-      position: relative;
+      display: flex; // Ensure flexbox layout
+      align-items: center; // Center items vertically
+      justify-content: center;
+      border-radius: 0;
+      position: relative; // Position relative for pseudo-elements
+
+      // Remove existing border
+      border-left: none;
+
+      // Add shorter border using a pseudo-element
+      &::before {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 49%; // Adjust this value to change the border length
+        background-color: $gray2;
+        left: 0;
+        top: 25%; // Center the border vertically
+      }
 
       .calendar-overlay {
         position: absolute;
@@ -314,13 +364,45 @@
         }
       }
     }
+
     .checkout {
-      border-left: 1px solid $gray1;
-      border-right: 1px solid $gray1;
+      //&:hover {//        background-color: $gray1;
+//      }
+      height: 100%;
       flex: 1;
+      display: flex; // Ensure flexbox layout
+      align-items: center; // Center items vertically
+      justify-content: center;
+      border-radius: 0;
+      position: relative; // Position relative for pseudo-elements
+
+      // Remove existing borders
+      border-left: none;
+      border-right: none;
+
+      // Add shorter borders using pseudo-elements
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 49%; // Adjust this value to change the border length
+        background-color: $gray2;
+      }
+
+      &::before {
+        left: 0;
+        top: 25%; // Center the border vertically
+      }
+      &::after {
+        right: 0;
+        top: 25%; // Center the border vertically
+      }
     }
     .destination {
       flex: 2;
+      height: 100%;
+      justify-content: center;
       &.open {
         border-top-left-radius: 90px;
         border-bottom-left-radius: 90px;
@@ -328,12 +410,13 @@
       }
     }
 
-
-
     .date,
     .checkin,
     .checkout,
     .destination {
+      //&:hover {//        background-color: $gray1;
+//      }
+
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -350,6 +433,10 @@
         margin-left: 35px;
       }
       .date-text {
+        color: $clr7;
+        font-size: 1rem;
+      }
+      .where-text {
         color: $clr7;
         font-size: 1rem;
       }

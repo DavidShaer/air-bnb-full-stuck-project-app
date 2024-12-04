@@ -23,7 +23,7 @@ export function AppGallery() {
   function hundleStayClick(stayId) {
     navigate(`rooms/${stayId}`);
   }
-
+  if (!stays) return <div>Loading...</div>;
   return (
     <div className="app-gallery">
       {stays.map((place) => (
@@ -38,16 +38,17 @@ export function AppGallery() {
               onClick={() => modalOpenHandler(place._id)}
             /> */}
             <div className="item-image">
-              <img src={place.imgUrls[0]} alt="" />
+              <img src={place.imgUrls?.[0] || ""} alt="" />
             </div>
           </div>
           <div className="item-content-wrapper">
             <p className="top-line">
               <span className="name_and_rate">{place.name}</span>
               {/* <span>★{place.reviews[0].rate}</span> */}
-              {place.reviews[0]?.rate && <span>★{place.reviews[0].rate}</span>}
+              {place.reviews?.[0]?.rate ||
+                ("" && <span>★{place.reviews?.[0].rate || ""}</span>)}
             </p>
-            <p className="middle-line">{place.host.fullname}</p>
+            <p className="middle-line">{place.host?.fullname}</p>
             <p className="last-line">{place.price}$</p>
           </div>
         </div>

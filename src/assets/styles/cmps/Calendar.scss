@@ -1,0 +1,106 @@
+.calendar-overlay {
+    display: grid;
+    position: absolute;
+    top: 207px;
+    z-index: 50;
+    
+    .calendar-container {
+      display: grid;
+      color: red;
+    }
+}
+.app-header .search-bar-container .search-bar .checkin .calendar-overlay {
+  top: 100px;
+  // width: 3500px;
+  // transform: translateX(25%);
+  translate: -10%;
+  // width: 2850px;
+
+}
+
+.custom-calendar {
+  background-color: #fff; /* Entire calendar background is white */
+  color: #000; /* Default text color is black */
+  // border: 1px solid #ccc; /* Subtle border for better visibility */
+  border-radius: 40px;
+  padding: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 850px;
+  height: 600px;
+  }
+  /* v div.calendar-overlay div.calendar-container div.react-calendar.react-calendar--doubleView.custom-calendar */
+  
+  /* Calendar Header (Navigation Buttons) */
+  .custom-calendar .react-calendar__navigation button {
+    background: #fff; /* White background for navigation */
+    color: #000; /* Black text for navigation buttons */
+    border: none;
+    font-weight: bold;
+    border-radius: 4px;
+  }
+  
+  .custom-calendar .react-calendar__navigation button:hover {
+    background: #f0f0f0; /* Light gray hover effect */
+    color: #000;
+  }
+  
+  /* Weekday Labels */
+  .custom-calendar .react-calendar__month-view__weekdays {
+    background: #fff; /* White background for weekday labels */
+    color: #000; /* Black font color */
+    font-weight: bold;
+  }
+  
+  .custom-calendar .react-calendar__month-view__weekdays__weekday {
+    text-align: center;
+    padding: 8px 0;
+  }
+  
+  /* Week Numbers */
+  .custom-calendar .react-calendar__month-view__weekNumbers {
+    background: #fff; /* White background for week numbers */
+    color: #000; /* Black font for week numbers */
+  }
+  
+  /* Tiles (Dates) */
+  .custom-calendar .react-calendar__tile {
+    background: #fff; /* White background for all date tiles */
+    color: #000; /* Black font for dates */
+    border-radius: 4px;
+  }
+  
+  .custom-calendar .react-calendar__tile--hover {
+    background: #f0f0f0; /* Light gray on hover */
+    color: #000;
+  }
+  
+  .custom-calendar .react-calendar__tile--active {
+    background: #ccc; /* Gray for selected dates */
+    color: #000;
+    font-weight: bold;
+  }
+  
+  .custom-calendar .react-calendar__tile--range {
+    background: #eee; /* Light gray for range selection */
+    color: #000;
+  }
+  
+  /* Start and End of Range */
+  .custom-calendar .react-calendar__tile--rangeStart,
+  .custom-calendar .react-calendar__tile--rangeEnd {
+    background: #ccc; /* Gray for range start and end */
+    color: #000;
+    font-weight: bold;
+  }
+  
+  /* View Container (Two Months Layout) */
+  .custom-calendar .react-calendar__viewContainer {
+    display: flex; /* Two months side by side */
+    gap: 20px; /* Add spacing between months */
+  }
+  
+  /* Remove Focus Outlines */
+  .custom-calendar button:focus {
+    outline: none;
+  }
+  

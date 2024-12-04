@@ -17,6 +17,11 @@ const SearchBar = ({ isMainFilterClose, SearchClicked }) => {
   const [checkOutDate, setCheckoutDate] = useState(null);
   const [where, setWhere] = useState("");
 
+  const handleSetWhere = (destination) => {
+    setWhere(destination);
+    setIsDestinationOpen(false); // Close the destination popup after selection
+  };
+
   // set
   const [whoPopup, setWhoPopup] = useState({
     adults: 0,
@@ -27,11 +32,30 @@ const SearchBar = ({ isMainFilterClose, SearchClicked }) => {
   // Add useEffect and ref
   const searchBarRef = useRef(null);
   const whereRef = useRef(null);
+  const dateRef = useRef(null);
+  const whoRef = useRef(null);
+
+  const getSectionClass = (isOpen, otherSections) => {
+    console.log("isOpen", isOpen);
+    console.log("otherSections", otherSections);
+
+    const areOthersClosed = otherSections.every((section) => !section);
+    console.log("areOthersClosed", areOthersClosed);
+    return isOpen || areOthersClosed ? "active-section" : "inactive-section";
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (whereRef.current && !whereRef.current.contains(event.target)) {
-        setIsDestinationOpen(false);
+      // Check if the click is truly outside all date-related elements
+      if (
+        dateRef.current &&
+        !dateRef.current.contains(event.target) &&
+        // Add additional checks to prevent closing when interacting with calendar
+        !event.target.closest(".react-datepicker") &&
+        !event.target.closest(".calendar-container")
+      ) {
+        setIsCheckInOpen(false);
+        setIsCheckOutOpen(false);
       }
     };
 
@@ -102,6 +126,13 @@ const SearchBar = ({ isMainFilterClose, SearchClicked }) => {
     SearchClicked([where, checkInDate, checkOutDate, whoPopup]);
   };
 
+  const isSearchBarOpen =
+    isCheckInOpen ||
+    isCheckOutOpen ||
+    isDatesOpen ||
+    isDestinationOpen ||
+    isGuestOpen;
+
   return (
     <div
       className={`search-bar-container ${isMainFilterClose}`}
@@ -121,25 +152,36 @@ const SearchBar = ({ isMainFilterClose, SearchClicked }) => {
           Experiences
         </div>
       </div>
-      <div className="search-bar">
+      <div
+        className={`search-bar ${isSearchBarOpen ? "is-search-bar-open" : ""}`}
+      >
         {/* where */}
         <div
-          // className="search-section destination"
-          className={`search-section destination ${
-            isDestinationOpen ? "open" : ""
-          }`}
+          className={`search-section destination ${getSectionClass(
+            isDestinationOpen,
+            [isGuestOpen, isCheckOutOpen, isDatesOpen, isCheckInOpen]
+          )}`}
           onClick={onDestinationOpen}
           ref={whereRef}
         >
           <div className="text-top">Where</div>
-          <div className="text-bottom">Search destinations</div>
-          {isDestinationOpen && <WherePopup onSetWhere={setWhere} />}
+          <div className={`text-bottom ${where ? "where-text" : ""}`}>
+            {where ? where : "Search destinations"}
+          </div>
+          {isDestinationOpen && <WherePopup onSetWhere={handleSetWhere} />}
         </div>
 
         {isRightLinkActive ? (
           <>
             {/* checkin */}
-            <div className="search-section checkin" onClick={onCheckInOpen}>
+            <div
+              className={`search-section checkin ${getSectionClass(
+                isCheckInOpen,
+                [isGuestOpen, isCheckOutOpen, isDatesOpen, isDestinationOpen]
+              )}`}
+              onClick={onCheckInOpen}
+              ref={dateRef}
+            >
               <div className="text-top">Check In</div>
               <div className={`text-bottom ${checkInDate ? "date-text" : ""}`}>
                 {checkInDate ? checkInDate.toLocaleDateString() : "Add Dates"}
@@ -156,7 +198,15 @@ const SearchBar = ({ isMainFilterClose, SearchClicked }) => {
             </div>
 
             {/* checkout */}
-            <div className="search-section checkout" onClick={onCheckOutOpen}>
+            <div
+              // className="search-section checkout"
+              className={`search-section checkout ${getSectionClass(
+                isCheckOutOpen,
+                [isGuestOpen, isCheckInOpen, isDatesOpen, isDestinationOpen]
+              )}`}
+              onClick={onCheckOutOpen}
+              ref={dateRef}
+            >
               <div className="text-top">Check Out</div>
               <div className={`text-bottom ${checkOutDate ? "date-text" : ""}`}>
                 {checkOutDate ? checkOutDate.toLocaleDateString() : "Add Dates"}
@@ -166,6 +216,7 @@ const SearchBar = ({ isMainFilterClose, SearchClicked }) => {
                   <CheckInOutCalendar
                     onSetCheckIn={setCheckIn}
                     onSetCheckOut={setCheckOut}
+                    ref={dateRef}
                   />
                 </div>
               )}
@@ -185,11 +236,24 @@ const SearchBar = ({ isMainFilterClose, SearchClicked }) => {
         )}
 
         {/* who */}
-        <div className="search-section search" onClick={onGuestOpen}>
+        <div
+          // className="search-section search"
+          className={`search-section search ${getSectionClass(isGuestOpen, [
+            isCheckInOpen,
+            isCheckOutOpen,
+            isDatesOpen,
+            isDestinationOpen,
+          ])}`}
+          onClick={onGuestOpen}
+          ref={whoRef}
+        >
           {/* search click */}
           <div
             className={`search-icon-wrapper ${isGuestOpen ? "open" : ""}`}
-            onClick={onSearchClick}
+            onClick={(event) => {
+              event.stopPropagation();
+              onSearchClick();
+            }}
           >
             <IoSearch className="search-icon" size={55} />
             <div className="search-text">Search</div>
@@ -204,7 +268,9 @@ const SearchBar = ({ isMainFilterClose, SearchClicked }) => {
                   {Object.entries(whoPopup)
                     .filter(([category, count]) => count !== 0)
                     .map(([category, count]) => (
-                      <span key={category}>{`${category}: ${count}`}</span>
+                      <span key={category} className="guest-count-text">
+                        {`${category}: ${count}`},
+                      </span>
                     ))}
                 </div>
               )}

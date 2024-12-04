@@ -6,7 +6,7 @@ body {
 
 .app-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(310px, 311px));
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
   // gap: 16px;
   width: 100%; /* Use width instead of max-width */
   box-sizing: border-box; /* Includes padding in width calculation */
@@ -18,7 +18,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 300px;
+    // max-width: 300px;
     flex-basis: 300px;
     gap: 10px;
     
@@ -41,10 +41,11 @@ body {
   }
 
   .item-image {
-  height: 300px; /* Set a constant height */
-  width: 300px; /* Allow proportional width resizing */
+  // height: 300px; /* Set a constant height */
+  // width: 300px; /* Allow proportional width resizing */
   max-width: 100%; /* Ensure it doesn't exceed container's width */
   object-fit: contain; /* Resize proportionally without cropping */
+  aspect-ratio: 1;
 
   img {
     height: 100%;
