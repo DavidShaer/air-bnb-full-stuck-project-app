@@ -138,20 +138,7 @@ const SearchBar = ({ isMainFilterClose, SearchClicked }) => {
       className={`search-bar-container ${isMainFilterClose}`}
       ref={searchBarRef}
     >
-      <div className="search-bar-nav">
-        <div
-          className={`nav-link ${isRightLinkActive ? "active" : ""}`}
-          onClick={() => setIsRightLinkActive(true)}
-        >
-          Stays
-        </div>
-        <div
-          className={`nav-link ${!isRightLinkActive ? "active" : ""}`}
-          onClick={() => setIsRightLinkActive(false)}
-        >
-          Experiences
-        </div>
-      </div>
+      
       <div
         className={`search-bar ${isSearchBarOpen ? "is-search-bar-open" : ""}`}
       >
@@ -171,69 +158,56 @@ const SearchBar = ({ isMainFilterClose, SearchClicked }) => {
           {isDestinationOpen && <WherePopup onSetWhere={handleSetWhere} />}
         </div>
 
-        {isRightLinkActive ? (
-          <>
-            {/* checkin */}
-            <div
-              className={`search-section checkin ${getSectionClass(
-                isCheckInOpen,
-                [isGuestOpen, isCheckOutOpen, isDatesOpen, isDestinationOpen]
-              )}`}
-              onClick={onCheckInOpen}
-              ref={dateRef}
-            >
-              <div className="text-top">Check In</div>
-              <div className={`text-bottom ${checkInDate ? "date-text" : ""}`}>
-                {checkInDate ? checkInDate.toLocaleDateString() : "Add Dates"}
-              </div>
-
-              {isCheckInOpen && (
-                <div>
-                  <CheckInOutCalendar
-                    onSetCheckIn={setCheckIn}
-                    onSetCheckOut={setCheckOut}
-                  />
-                </div>
-              )}
+        <>
+          {/* checkin */}
+          <div
+            className={`search-section checkin ${getSectionClass(
+              isCheckInOpen,
+              [isGuestOpen, isCheckOutOpen, isDatesOpen, isDestinationOpen]
+            )}`}
+            onClick={onCheckInOpen}
+            ref={dateRef}
+          >
+            <div className="text-top">Check In</div>
+            <div className={`text-bottom ${checkInDate ? "date-text" : ""}`}>
+              {checkInDate ? checkInDate.toLocaleDateString() : "Add Dates"}
             </div>
 
-            {/* checkout */}
-            <div
-              // className="search-section checkout"
-              className={`search-section checkout ${getSectionClass(
-                isCheckOutOpen,
-                [isGuestOpen, isCheckInOpen, isDatesOpen, isDestinationOpen]
-              )}`}
-              onClick={onCheckOutOpen}
-              ref={dateRef}
-            >
-              <div className="text-top">Check Out</div>
-              <div className={`text-bottom ${checkOutDate ? "date-text" : ""}`}>
-                {checkOutDate ? checkOutDate.toLocaleDateString() : "Add Dates"}
-              </div>
-              {isCheckOutOpen && (
-                <div>
-                  <CheckInOutCalendar
-                    onSetCheckIn={setCheckIn}
-                    onSetCheckOut={setCheckOut}
-                    ref={dateRef}
-                  />
-                </div>
-              )}
-            </div>
-          </>
-        ) : (
-          // experiences
-          <div className="search-section date" onClick={onDatesOpen}>
-            <div className="text-top">Date</div>
-            <div className="text-bottom">Add Dates</div>
-            {isDatesOpen && (
+            {isCheckInOpen && (
               <div>
-                <input type="date" />
+                <CheckInOutCalendar
+                  onSetCheckIn={setCheckIn}
+                  onSetCheckOut={setCheckOut}
+                />
               </div>
             )}
           </div>
-        )}
+
+          {/* checkout */}
+          <div
+            // className="search-section checkout"
+            className={`search-section checkout ${getSectionClass(
+              isCheckOutOpen,
+              [isGuestOpen, isCheckInOpen, isDatesOpen, isDestinationOpen]
+            )}`}
+            onClick={onCheckOutOpen}
+            ref={dateRef}
+          >
+            <div className="text-top">Check Out</div>
+            <div className={`text-bottom ${checkOutDate ? "date-text" : ""}`}>
+              {checkOutDate ? checkOutDate.toLocaleDateString() : "Add Dates"}
+            </div>
+            {isCheckOutOpen && (
+              <div>
+                <CheckInOutCalendar
+                  onSetCheckIn={setCheckIn}
+                  onSetCheckOut={setCheckOut}
+                  ref={dateRef}
+                />
+              </div>
+            )}
+          </div>
+        </>
 
         {/* who */}
         <div

@@ -1,22 +1,50 @@
-.calendar-overlay {
-    display: grid;
-    position: absolute;
-    top: 207px;
-    z-index: 50;
-    
-    .calendar-container {
-      display: grid;
-      color: red;
-    }
+.calendar-container {
+  color: red;
+  .react-calendar.react-calendar--doubleView.custom-calendar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+    padding-top: 40px;
+    background-color: $clr6;
+    width: 100%;
+  }
 }
-.app-header .search-bar-container .search-bar .checkin .calendar-overlay {
-  top: 100px;
-  // width: 3500px;
-  // transform: translateX(25%);
-  translate: -10%;
-  // width: 2850px;
 
+.checkin {
+  .calendar-overlay {
+    position: absolute;
+    top: 79px;
+    z-index: 50;
+    width: 950px;
+    translate: -33.25%;
+    }
+  }
+
+
+.checkout {
+  .calendar-overlay {
+    position: absolute;
+    top: 79px;
+    z-index: 50;
+    width: 950px;
+    translate: -49.8%;
+  }
 }
+
+
+
+
+
+
+.app-header .search-bar-container .search-bar .checkin .calendar-overlay {
+  // top: 100px;
+  // width: 100%;
+  // transform: translateX(25%);
+  // translate: -10%;
+  // width: 2850px;
+}
+
 
 .custom-calendar {
   background-color: #fff; /* Entire calendar background is white */

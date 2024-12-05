@@ -3,6 +3,10 @@
   // align-items: center; // Align items vertically centered
   // justify-content: space-between; // Distribute space between items
   margin-bottom: 15px;
+  width: 100%;
+  padding-top: 20px;
+
+
 
   background-color: $clr6;
   .user-info {
@@ -131,11 +135,16 @@
 }
 
 .search-bar-container {
-  display: grid;
-  align-items: center;
-  flex-direction: column;
+  // display: grid;
+  // align-items: center;
+  // flex-direction: column;
+  // justify-content: center;
+  // gap: 10px;
+  display: flex;
   justify-content: center;
-  gap: 10px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  
 
   .is-search-bar-open {
     background-color: $gray1;
@@ -143,14 +152,42 @@
 
   .search-bar {
     display: flex;
-    height: 80px;
+    height: 74px;
     // align-items: center;
     border: 1px solid rgb(221, 221, 221);
     box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1),
       0 1px 2px 0 rgba(0, 0, 0, 0.08);
     border-radius: 90px;
     // width: 75vw;
-    width: 850px;
+    width: 950px;
+
+
+    .search-section.destination {
+      display: flex;
+      justify-content: space-around;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+    .search-section.checkin {
+      display: flex;
+      justify-content: space-around;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+    .search-section.checkout {
+      display: flex;
+      justify-content: space-around;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+    .search-section.search {
+      display: flex;
+      // justify-content: space-around;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
+
 
     .popup-where {
       // &:hover {
@@ -167,6 +204,7 @@
       height: 450px;
       width: 700px;
       padding: 15px;
+
     
       .where-item-wrapper {
         display: grid;
@@ -349,20 +387,20 @@
         top: 25%; // Center the border vertically
       }
 
-      .calendar-overlay {
-        position: absolute;
-        top: 70px;
-        translate: -33.5%;
+      // .calendar-overlay {
+      //   position: absolute;
+      //   top: 70px;
+      //   translate: -33.5%;
 
-        .react-calendar {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          padding: 80px;
-          padding-top: 40px;
-          background-color: $clr6;
-        }
-      }
+        // .react-calendar {
+        //   display: flex;
+        //   flex-direction: column;
+        //   justify-content: center;
+        //   padding: 80px;
+        //   padding-top: 40px;
+        //   background-color: $clr6;
+        // }
+      // }
     }
 
     .checkout {
