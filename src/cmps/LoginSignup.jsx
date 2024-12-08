@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import { userService } from "../services/user.service";
-import { ImgUploader } from "./ImgUploader";
+import { IoMdClose } from "react-icons/io";
 
-export function LoginSignup({onLogin, onSignup,onModalOpen,isModalOpen}) {
+export function LoginSignup({ onLogin, onSignup }) {
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
     fullname: "",
   });
   const [isSignup, setIsSignup] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -48,74 +49,97 @@ export function LoginSignup({onLogin, onSignup,onModalOpen,isModalOpen}) {
 
   function toggleSignup() {
     setIsSignup(!isSignup);
-    onModalOpen();
   }
-
-  function onUploaded(imgUrl) {
-    setCredentials({ ...credentials, imgUrl });
+  function toggleLogin() {
+    setIsLogin(!isLogin);
   }
 
   return (
     <div className="login-page">
       <p>
         <button className="btn-link" onClick={toggleSignup}>
-          {!isSignup ? "Signup" : "Login"}
+          Signup
+        </button>
+        <button className="btn-link" onClick={toggleLogin}>
+          Login
         </button>
       </p>
-      {isModalOpen && 
-      <>
-      {!isSignup && (
-        <form className="login-form" onSubmit={onLogin}>
-          <select
-            name="username"
-            value={credentials.username}
-            onChange={handleChange}
-          >
-            <option value="">Select User</option>
-            {users.map((user) => (
-              <option key={user._id} value={user.username}>
-                {user.fullname}
-              </option>
-            ))}
-          </select>
-          <button>Login</button>
-        </form>
-      )}
-      {isSignup && (
-        <div className="signup-section">
-          <form className="signup-form" onSubmit={onSignup}>
-            <input
-              type="text"
-              name="fullname"
-              value={credentials.fullname}
-              placeholder="Fullname"
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="text"
-              name="username"
-              value={credentials.username}
-              placeholder="Username"
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="password"
-              name="password"
-              value={credentials.password}
-              placeholder="Password"
-              onChange={handleChange}
-              required
-            />
-            <ImgUploader onUploaded={onUploaded} />
-            <button>Signup</button>
-          </form>
-        </div>
-      )}
-      </>
-      }
-      
+        <>
+          {isLogin && (
+            <div className="login-overlay">
+            <div className="login-section">
+              <div className="login-top">
+                <div className="login-title">Login</div>
+                <IoMdClose className="login-close" onClick={() => setIsLogin(false)}/>
+              </div>
+              <form className="login-form" onSubmit={onSignup}>
+                <input
+                  type="text"
+                  name="fullname"
+                  value={credentials.fullname}
+                  placeholder="Fullname"
+                  onChange={handleChange}
+                  required
+                />
+                <input
+                  type="text"
+                  name="username"
+                  value={credentials.username}
+                  placeholder="Username"
+                  onChange={handleChange}
+                  required
+                />
+                <input
+                  type="password"
+                  name="password"
+                  value={credentials.password}
+                  placeholder="Password"
+                  onChange={handleChange}
+                  required
+                />
+                <button>Login</button>
+              </form>
+            </div>
+          </div>
+          )}
+          {isSignup && (
+            <div className="signup-overlay">
+              <div className="signup-section">
+                <div className="signup-top">
+                  <div className="signup-title">Signup</div>
+                  <IoMdClose className="signup-close" onClick={() => setIsSignup(false)}/>
+                </div>
+                <form className="signup-form" onSubmit={onSignup}>
+                  <input
+                    type="text"
+                    name="fullname"
+                    value={credentials.fullname}
+                    placeholder="Fullname"
+                    onChange={handleChange}
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="username"
+                    value={credentials.username}
+                    placeholder="Username"
+                    onChange={handleChange}
+                    required
+                  />
+                  <input
+                    type="password"
+                    name="password"
+                    value={credentials.password}
+                    placeholder="Password"
+                    onChange={handleChange}
+                    required
+                  />
+                  <button>Signup</button>
+                </form>
+              </div>
+            </div>
+          )}
+        </>
     </div>
   );
 }

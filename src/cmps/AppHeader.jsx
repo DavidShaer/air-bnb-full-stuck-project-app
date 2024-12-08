@@ -14,8 +14,6 @@ import SearchBar from "./SearchBar.jsx";
 
 export function AppHeader({ SearchClicked }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  // const user = useSelector((storeState) => storeState.userModule.user);
   const user = useSelector((storeState) => storeState?.userModule?.user);
   const navigate = useNavigate();
   const [isMainFilterClose, setIsMainFilterClose] = useState("");
@@ -59,13 +57,8 @@ export function AppHeader({ SearchClicked }) {
     }
   }
 
-  const onModalOpen = () => {
-    setIsModalOpen(true);
-  };
-
   const onToggleHamburger = () => {
     setIsMenuOpen(!isMenuOpen);
-    setIsModalOpen(false);
   };
 
   return (
@@ -93,8 +86,6 @@ export function AppHeader({ SearchClicked }) {
                     <LoginSignup
                       onLogin={onLogin}
                       onSignup={onSignup}
-                      onModalOpen={onModalOpen}
-                      isModalOpen={isModalOpen}
                     />
                   </section>
                 )}
