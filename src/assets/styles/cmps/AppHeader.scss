@@ -96,7 +96,7 @@
         position: absolute;
         top: 10px;
         left: 0;
-        width: 200px;
+        width: 250px;
         background-color: #fff;
         display: flex;
         flex-direction: column;
@@ -145,22 +145,17 @@
   .search-bar {
     display: flex;
     height: 80px;
-    // align-items: center;
     border: 1px solid rgb(221, 221, 221);
     box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1),
       0 1px 2px 0 rgba(0, 0, 0, 0.08);
     border-radius: 90px;
-    // width: 75vw;
     width: 850px;
 
     .popup-where {
-      // &:hover {
-      //   background-color: $gray1;
-      // }
+    
       display: grid;
       position: absolute;
       top: 207px;
-      // margin-top: 95px;
       background-color: #fff;
       border-radius: 40px;
       box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.08);
@@ -203,9 +198,6 @@
     }
 
     .search {
-      //&:hover {//        background-color: $gray1;
-//      }
-
       flex-direction: row-reverse;
       flex: 2;
       display: flex;
@@ -367,8 +359,6 @@
     }
 
     .checkout {
-      //&:hover {//        background-color: $gray1;
-//      }
       height: 100%;
       flex: 1;
       display: flex; // Ensure flexbox layout
@@ -415,8 +405,6 @@
     .checkin,
     .checkout,
     .destination {
-      //&:hover {//        background-color: $gray1;
-//      }
 
       display: flex;
       flex-direction: column;

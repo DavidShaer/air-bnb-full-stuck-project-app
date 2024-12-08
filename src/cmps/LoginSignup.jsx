@@ -32,19 +32,20 @@ export function LoginSignup({ onLogin, onSignup }) {
     setCredentials({ ...credentials, [field]: value });
   }
 
-  function onLogin(ev = null) {
+  function onLoginSubmit(ev = null) {
     if (ev) ev.preventDefault();
     if (!credentials.username) return;
     onLogin(credentials);
     clearState();
   }
 
-  function onSignup(ev = null) {
+  function onSignupSubmit(ev = null) {
     if (ev) ev.preventDefault();
     if (!credentials.username || !credentials.password || !credentials.fullname)
       return;
     onSignup(credentials);
     clearState();
+    console.log(credentials)
   }
 
   function toggleSignup() {
@@ -72,15 +73,7 @@ export function LoginSignup({ onLogin, onSignup }) {
                 <div className="login-title">Login</div>
                 <IoMdClose className="login-close" onClick={() => setIsLogin(false)}/>
               </div>
-              <form className="login-form" onSubmit={onSignup}>
-                <input
-                  type="text"
-                  name="fullname"
-                  value={credentials.fullname}
-                  placeholder="Fullname"
-                  onChange={handleChange}
-                  required
-                />
+              <form className="login-form" onSubmit={onLoginSubmit}>
                 <input
                   type="text"
                   name="username"
@@ -109,7 +102,7 @@ export function LoginSignup({ onLogin, onSignup }) {
                   <div className="signup-title">Signup</div>
                   <IoMdClose className="signup-close" onClick={() => setIsSignup(false)}/>
                 </div>
-                <form className="signup-form" onSubmit={onSignup}>
+                <form className="signup-form" onSubmit={onSignupSubmit}>
                   <input
                     type="text"
                     name="fullname"

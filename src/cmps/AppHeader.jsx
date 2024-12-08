@@ -42,7 +42,7 @@ export function AppHeader({ SearchClicked }) {
     try {
       const user = await signup(credentials);
       showSuccessMsg(`Welcome new user: ${user.fullname}`);
-      navigate("/");
+      // navigate("/");
     } catch (err) {
       showErrorMsg("Cannot signup");
     }
@@ -89,8 +89,6 @@ export function AppHeader({ SearchClicked }) {
                     />
                   </section>
                 )}
-                <NavLink to="about">About</NavLink>
-                <NavLink to="review">Review</NavLink>
               </>
             </Card>
           )}
