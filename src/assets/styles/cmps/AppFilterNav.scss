@@ -7,16 +7,62 @@
   padding-top: 35px;
   padding-bottom: 42px;
   .filter-container {
-    width: 100%;
+    width: 93%;
     height: 48px;
+    position: relative;
+
+    // .react-multi-carousel-list .react-multi-carousel-track .react-multi-carousel-item.react-multi-carousel-item--active{
+    //   width: 48px;
+    // }
+
+
+    // .react-multi-carousel-list button{
+    //   overflow: visible;
+    // }
+    .react-multi-carousel-list .react-multi-carousel-track .react-multi-carousel-item  {
+      // .react-multi-carousel-item--active{
+      //   // width: 48px;
+      // }
+        .filter-nav-item{
+        height: 48px;
+        width: 48px;
+        img {
+          width: 24px;
+          height: 24px;
+        }
+    }
     // .react-multi-carousel-list {
     //   .react-multi-carousel-track {
-    //     .react-multi-carousel-item {
-    //       max-width: 50px; // Set the max-width for the `li`
+    //     li {
+    //       width: 48px;
     //     }
     //   }
     // }
+    
   }
+
+
+
+
+    
+
+  //   .react-multi-carousel-list{
+  //     .react-multi-carousel-item .filter-nav-item div img.image {
+  //     width: 24px;
+  //     height: 24px;
+  //   }
+  //   .react-multi-carousel-track .react-multi-carousel-item{
+  //     // height: 48px;
+  //     // aspect-ratio: 1/1;
+  //   }
+  //   .react-multi-carousel-track .react-multi-carousel-item .filter-nav-item .image-overlay{
+  //     width: 48px;
+  //     height: 48px;
+  //     font-size: 12px;
+  //   }
+  // }
+  }
+// react-multi-carousel-track li.react-multi-carousel-item.react-multi-carousel-item--active
 
 
   // .filter-container {

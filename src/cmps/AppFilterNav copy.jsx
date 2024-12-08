@@ -19,32 +19,32 @@
 //     <div className="app-filter-nav">
 //       <div className="app-filter-nav-container">
 //         <Slider {...settings}>
-//           {Object.keys(images).map((image_path) => {
-//             const image_path_new = image_path.replace(
-//               "../assets/images/",
-//               "/air-bnb-full-stuck-project/src/assets/images/"
-//             );
-//             const imageFilename = path.basename(image_path);
+          // {Object.keys(images).map((image_path) => {
+          //   const image_path_new = image_path.replace(
+          //     "../assets/images/",
+          //     "/air-bnb-full-stuck-project/src/assets/images/"
+          //   );
+          //   const imageFilename = path.basename(image_path);
 
-//             return (
-//               <div
-//                 className="filter-nav-item"
-//                 key={imageFilename}
-//                 onClick={() => categoryClickHandler(imageFilename)}
-//               >
-//                 <div className="image-wrapper">
-//                   <img
-//                     src={image_path_new}
-//                     alt={imageFilename}
-//                     className="image"
-//                   />
-//                   <div className="image-overlay">
-//                     {imageFilename.replace(".jpg", "").replace("_", " ")}
-//                   </div>
-//                 </div>
-//               </div>
-//             );
-//           })}
+          //   return (
+          //     <div
+          //       className="filter-nav-item"
+          //       key={imageFilename}
+          //       onClick={() => categoryClickHandler(imageFilename)}
+          //     >
+          //       <div className="image-wrapper">
+          //         <img
+          //           src={image_path_new}
+          //           alt={imageFilename}
+          //           className="image"
+          //         />
+          //         <div className="image-overlay">
+          //           {imageFilename.replace(".jpg", "").replace("_", " ")}
+          //         </div>
+          //       </div>
+          //     </div>
+          //   );
+          // })}
 //         </Slider>
 //       </div>
 //     </div>
