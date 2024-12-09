@@ -1,6 +1,7 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "../assets/styles/setup/_variables.scss";
+import { Link, NavLink } from "react-router-dom";
 
 export function AppFilterNav({ categoryClickHandler }) {
   const CustomButtonGroupAsArrows = ({ next, previous }) => (
@@ -59,7 +60,7 @@ export function AppFilterNav({ categoryClickHandler }) {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 1601 },
       // items: 5,
-      items: 5,
+      items: 9,
     },
     desktop: {
       breakpoint: { max: 1600, min: 1024 },
@@ -78,13 +79,6 @@ export function AppFilterNav({ categoryClickHandler }) {
     },
   };
 
-  // const items = [
-  //   { id: 1, name: "Item 1", color: "#FFD700" },
-  //   { id: 2, name: "Item 2", color: "#FF5733" },
-  //   { id: 3, name: "Item 3", color: "#33FF57" },
-  //   { id: 4, name: "Item 4", color: "#337DFF" },
-  //   { id: 5, name: "Item 5", color: "#FF33A6" },
-  // ];
   const images = import.meta.glob("../assets/images/*.{jpg,png,svg}");
   return (
     <div className="app-filter-nav">
@@ -99,6 +93,7 @@ export function AppFilterNav({ categoryClickHandler }) {
           arrows={false}
           additionalTransfrom={0}
           centerMode={false}
+          containerClass="carousel-container"
         >
           {Object.keys(images).map((image_path) => {
             const image_path_new = image_path.replace(
@@ -108,51 +103,26 @@ export function AppFilterNav({ categoryClickHandler }) {
             const imageFilename = image_path.split("/").pop(); // Extract file name
 
             return (
-              <div
+              <a
                 className="filter-nav-item"
                 key={imageFilename}
                 onClick={() => categoryClickHandler(imageFilename)}
                 style={{
-                  // padding: "10px",
-                  // textAlign: "center",
-                  //     borderRadius: "10px",
-                  width: "20%",
-                  backgroundColor: "red",
+                  width: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: "100%",
                 }}
               >
-                {/* Image Wrapper */}
-                {/* <div className="image-wrapper" style={{ position: "relative" }}> */}
                 <div>
-                  <img
-                    src={image_path_new}
-                    alt={imageFilename}
-                    //   className="image"
-                    //   style={{
-                    //     maxWidth: "100%",
-                    //     borderRadius: "10px",
-                    //     marginBottom: "10px",
-                    //   }
-                    // }
-                  />
-                  <div
-                  // className="image-overlay"
-                  // style={{
-                  //   position: "absolute",
-                  //   bottom: "0",
-                  //   left: "0",
-                  //   right: "0",
-                  //   background: "rgba(0, 0, 0, 0.5)",
-                  //   color: "#fff",
-                  //   padding: "5px",
-                  //   textAlign: "center",
-                  //   borderBottomLeftRadius: "10px",
-                  //   borderBottomRightRadius: "10px",
-                  // }}
-                  >
+                  <img src={image_path_new} alt={imageFilename} />
+                  <div>
                     {imageFilename.replace(".jpg", "").replace("_", " ")}
                   </div>
                 </div>
-              </div>
+              </a>
             );
           })}
         </Carousel>
