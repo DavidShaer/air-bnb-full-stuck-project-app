@@ -14,8 +14,6 @@ import SearchBar from "./SearchBar.jsx";
 
 export function AppHeader({ SearchClicked }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  // const user = useSelector((storeState) => storeState.userModule.user);
   const user = useSelector((storeState) => storeState?.userModule?.user);
   const navigate = useNavigate();
   const [isMainFilterClose, setIsMainFilterClose] = useState("");
@@ -44,7 +42,7 @@ export function AppHeader({ SearchClicked }) {
     try {
       const user = await signup(credentials);
       showSuccessMsg(`Welcome new user: ${user.fullname}`);
-      navigate("/");
+      // navigate("/");
     } catch (err) {
       showErrorMsg("Cannot signup");
     }
@@ -59,13 +57,8 @@ export function AppHeader({ SearchClicked }) {
     }
   }
 
-  const onModalOpen = () => {
-    setIsModalOpen(true);
-  };
-
   const onToggleHamburger = () => {
     setIsMenuOpen(!isMenuOpen);
-    setIsModalOpen(false);
   };
 
   return (
@@ -93,13 +86,9 @@ export function AppHeader({ SearchClicked }) {
                     <LoginSignup
                       onLogin={onLogin}
                       onSignup={onSignup}
-                      onModalOpen={onModalOpen}
-                      isModalOpen={isModalOpen}
                     />
                   </section>
                 )}
-                <NavLink to="about">About</NavLink>
-                <NavLink to="review">Review</NavLink>
               </>
             </Card>
           )}

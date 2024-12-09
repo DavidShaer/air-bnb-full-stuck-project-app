@@ -18,6 +18,7 @@ form > * {
     background-color: transparent;
     text-decoration: underline;
     transition: .5s;
+    border-radius: 5px;
 }
 .btn-link:hover {
     background-color: $clr1;
