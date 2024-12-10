@@ -26,7 +26,7 @@ export function AppFilterNav({ categoryClickHandler }) {
         height: "40px",
         width: "40px",
         cursor: "pointer",
-        zIndex: 10,
+        zIndex: 1,
       }}
     >
       {"<"}
@@ -48,7 +48,7 @@ export function AppFilterNav({ categoryClickHandler }) {
         height: "40px",
         width: "40px",
         cursor: "pointer",
-        zIndex: 900,
+        zIndex: 1,
         marginLeft: "10px",
       }}
     >

@@ -43,7 +43,8 @@
   .item-image {
   // height: 300px; /* Set a constant height */
   // width: 300px; /* Allow proportional width resizing */
-  max-width: 100%; /* Ensure it doesn't exceed container's width */
+
+  max-width: 600px; /* Ensure it doesn't exceed container's width */
   object-fit: contain; /* Resize proportionally without cropping */
   aspect-ratio: 1;
 

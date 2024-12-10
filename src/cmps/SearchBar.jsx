@@ -2,12 +2,10 @@ import React, { useState, useRef, useEffect } from "react";
 import { IoSearch } from "react-icons/io5";
 import WhoPopup from "./searchPopups/WhoPopup";
 import WherePopup from "./searchPopups/WherePopup";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import CheckInOutCalendar from "./Calender";
 
 const SearchBar = ({ isMainFilterClose, SearchClicked }) => {
-  const [isRightLinkActive, setIsRightLinkActive] = useState(true);
   const [isGuestOpen, setIsGuestOpen] = useState(false);
   const [isCheckInOpen, setIsCheckInOpen] = useState(false);
   const [isCheckOutOpen, setIsCheckOutOpen] = useState(false);
@@ -52,10 +50,15 @@ const SearchBar = ({ isMainFilterClose, SearchClicked }) => {
         !dateRef.current.contains(event.target) &&
         // Add additional checks to prevent closing when interacting with calendar
         !event.target.closest(".react-datepicker") &&
-        !event.target.closest(".calendar-container")
+        !event.target.closest(".calendar-container") &&
+        !event.target.closest(".popup-where") &&
+        !event.target.closest(".popup-who")
       ) {
         setIsCheckInOpen(false);
         setIsCheckOutOpen(false);
+        setIsGuestOpen(false);
+        setIsDatesOpen(false);
+        setIsDestinationOpen(false);
       }
     };
 
@@ -138,7 +141,6 @@ const SearchBar = ({ isMainFilterClose, SearchClicked }) => {
       className={`search-bar-container ${isMainFilterClose}`}
       ref={searchBarRef}
     >
-      
       <div
         className={`search-bar ${isSearchBarOpen ? "is-search-bar-open" : ""}`}
       >

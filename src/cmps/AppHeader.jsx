@@ -64,8 +64,15 @@ export function AppHeader({ SearchClicked }) {
   return (
     <header className="app-header">
       <nav className="nav-container-wrapper">
-        <IoLogoCodepen size={35} className="app-logo" />
+        {/* <IoLogoCodepen size={35} className="app-logo" /> */}
+        <img
+          src="/src/assets/logos/airbnb-icon5414.logowik.svg"
+          alt="Airbnb Logo"
+          className="app-logo"
+          style={{ width: "50px", height: "40px" }}
+        />
 
+        {/* /> */}
         <div className="hamburger-menu">
           <div className="airbnb-text">
             <span>Airbnb-</span>
@@ -83,10 +90,7 @@ export function AppHeader({ SearchClicked }) {
                   <button onClick={onLogout}>Logout</button>
                 ) : (
                   <section className="user-info">
-                    <LoginSignup
-                      onLogin={onLogin}
-                      onSignup={onSignup}
-                    />
+                    <LoginSignup onLogin={onLogin} onSignup={onSignup} />
                   </section>
                 )}
               </>

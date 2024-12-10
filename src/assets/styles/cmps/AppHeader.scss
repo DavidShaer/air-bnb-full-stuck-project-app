@@ -115,7 +115,7 @@
   }
 
   .close-header {
-    background-color: aqua;
+    // background-color: aqua;
   }
 
 
@@ -161,6 +161,7 @@
     border-radius: 90px;
     // width: 75vw;
     width: 950px;
+    z-index: 2;
 
 
     .search-section.destination {
@@ -194,14 +195,14 @@
     
       display: grid;
       position: absolute;
-      top: 207px;
+      top: 175px;
       background-color: #fff;
       border-radius: 40px;
       box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.08);
       z-index: 1;
-      height: 450px;
+      height: 500px;
       width: 700px;
-      padding: 15px;
+      padding: 50px;
 
     
       .where-item-wrapper {
@@ -284,7 +285,6 @@
       .sreach-text-wrapper { 
         display: flex;
         flex-direction: column;
-        // align-items: flex-end;
         .text-top {
           color: $clr7;
           font-size: 0.89rem;
@@ -322,11 +322,13 @@
         flex-direction: column;
         gap: 10px;
         padding: 35px;
+        justify-content: center;
+        gap: 25px;
         .who-item {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          margin: 0 15px;
+          margin: 0 25px;
           padding: 15px 0;
           border-bottom: 1px solid $gray1;
           .who-content {
@@ -375,27 +377,12 @@
       &::before {
         content: '';
         position: absolute;
-        width: 1px;
+        width: 2px;
         height: 49%; // Adjust this value to change the border length
         background-color: $gray2;
         left: 0;
         top: 25%; // Center the border vertically
       }
-
-      // .calendar-overlay {
-      //   position: absolute;
-      //   top: 70px;
-      //   translate: -33.5%;
-
-        // .react-calendar {
-        //   display: flex;
-        //   flex-direction: column;
-        //   justify-content: center;
-        //   padding: 80px;
-        //   padding-top: 40px;
-        //   background-color: $clr6;
-        // }
-      // }
     }
 
     .checkout {
@@ -412,13 +399,24 @@
       border-right: none;
 
       // Add shorter borders using pseudo-elements
-      &::before,
-      &::after {
+      &::before{
+      // &::after {
         content: '';
         position: absolute;
         width: 1px;
         height: 49%; // Adjust this value to change the border length
         background-color: $gray2;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        width: 2px;  // Changed from 2px to 1px to match the left border
+        height: 49%;
+        background-color: $gray2;
+        right: 0;
+        top: 25%;
+        opacity: 1; // Add this to ensure visibility
+
       }
 
       &::before {

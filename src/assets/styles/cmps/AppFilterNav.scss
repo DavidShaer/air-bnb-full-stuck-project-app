@@ -6,26 +6,28 @@
   justify-content: center;
   padding-top: 35px;
   padding-bottom: 42px;
+
   .filter-container {
     width: 93%;
     height: 100%;
     position: relative;
-
     .carousel-container {
-      
      li {
-      
-      width: 120px !important;
+      width: 90px !important;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 70px;
       font-size: 14px;
-      margin-left: 10px;
-      margin-right: 10px;
+      margin-left: 2px;
+      margin-right: 2px;
       
      }
+    }
+    .react-multi-carousel-list{
+      margin-left: 30px;
+      margin-right: 30px;
     }
 
     .react-multi-carousel-list .react-multi-carousel-track .react-multi-carousel-item  {
@@ -33,6 +35,14 @@
         opacity: 0.7;
         text-decoration: none;
         color: black;
+
+        &:hover{
+          // background-color: $gray1;
+          // cursor: pointer;
+          // border-radius: 10px;
+          opacity: 1;
+          border-bottom: 4px solid $gray1;
+        }
 
         &.active {
           opacity: 1;
@@ -47,6 +57,7 @@
             width: 26px;
             height: 26px;
           }
+          text-align: center; 
         }
         
     }
@@ -54,3 +65,6 @@
 
   }
 }
+
+
+// html body div#root div.app-container div.app-filter-nav div.filter-container div.react-multi-carousel-list.carousel-container ul.react-multi-carousel-track li.react-multi-carousel-item a.filter-nav-item div div
