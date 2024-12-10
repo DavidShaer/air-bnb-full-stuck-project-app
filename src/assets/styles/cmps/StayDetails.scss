@@ -378,23 +378,4 @@
       }
     }
   }
-  .stay-location-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    border-bottom: 2px solid $gray1;
-    padding-bottom: 30px;
-    margin-top: 20px;
-    align-items: center;
-    .stay-location-title {
-      font-size: 26px;
-      font-weight: bold;
-      align-self: flex-start;
-    }
-    .stay-location-subtitle {
-      font-size: 22px;
-      font-weight: bold;
-      align-self: flex-start;
-    }
-  }
 }

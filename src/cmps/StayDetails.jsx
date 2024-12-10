@@ -204,20 +204,6 @@ export function StayDetails() {
               ))}
             </div>
           </div>
-          <div className="stay-location-container">
-            <div className="stay-location-title">Where you’ll be</div>
-            <div className="stay-location-subtitle">{stay.loc.address}</div>
-            <div style={{ height: "80vh", width: "80%" }}>
-              <GoogleMapReact
-                bootstrapURLKeys={{ key: "" }}
-                defaultCenter={{
-                  lng: Math.abs(stay.loc.lan || stay.loc.lng),
-                  lat: Math.abs(stay.loc.lat),
-                }}
-                defaultZoom={11}
-              ></GoogleMapReact>
-            </div>
-          </div>
         </>
       ) : (
         <div>Loading...</div>

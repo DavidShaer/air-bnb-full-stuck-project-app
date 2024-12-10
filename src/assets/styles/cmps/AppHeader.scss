@@ -55,6 +55,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    .app-main-logo {
+      background: url(../../../../public/img/download.png) no-repeat center center/cover;
+      width: 120px;
+      height: 80px;
+      cursor: pointer;
+    }
     .search-bar-nav {
       display: flex;
       flex: 1; // Allow both to take equal space

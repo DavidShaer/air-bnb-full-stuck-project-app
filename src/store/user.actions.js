@@ -35,7 +35,7 @@ export async function removeUser(userId) {
 
 export async function login(credentials) {
   try {
-    await axios.post("http://localhost:3031/api/auth/login", credentials, {
+    return await axios.post("http://localhost:3031/api/auth/login", credentials, {
       headers: { "Content-Type": "application/json" },
     });
   } catch (err) {
@@ -46,7 +46,7 @@ export async function login(credentials) {
 
 export async function signup(credentials) {
   try {
-    await axios.post("http://localhost:3031/api/auth/signup", credentials, {
+   return await axios.post("http://localhost:3031/api/auth/signup", credentials, {
       headers: { "Content-Type": "application/json" },
     });
   } catch (err) {

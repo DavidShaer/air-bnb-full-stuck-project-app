@@ -32,18 +32,21 @@ export function AppHeader({ SearchClicked }) {
   async function onLogin(credentials) {
     try {
       const user = await login(credentials);
-      showSuccessMsg(`Welcome: ${user.fullname}`);
-      navigate("/");
+      showSuccessMsg(`Welcome: ${user.data.username}`);
+      navigate("/air-bnb-full-stuck-project/");
+      setIsMenuOpen(false);
     } catch (err) {
+      console.log(err)
       showErrorMsg("Cannot login");
     }
   }
   async function onSignup(credentials) {
     try {
       const user = await signup(credentials);
-      showSuccessMsg(`Welcome new user: ${user.fullname}`);
-      // navigate("/");
+      showSuccessMsg(`Welcome new user: ${user.data.username}`);
+      setIsMenuOpen(false);
     } catch (err) {
+      console.log(err)
       showErrorMsg("Cannot signup");
     }
   }
@@ -64,13 +67,7 @@ export function AppHeader({ SearchClicked }) {
   return (
     <header className="app-header">
       <nav className="nav-container-wrapper">
-        {/* <IoLogoCodepen size={35} className="app-logo" /> */}
-        <img
-          src="/src/assets/logos/airbnb-icon5414.logowik.svg"
-          alt="Airbnb Logo"
-          className="app-logo"
-          style={{ width: "50px", height: "40px" }}
-        />
+        <div className="app-main-logo" onClick={() => navigate("/air-bnb-full-stuck-project/")}></div>
 
         {/* /> */}
         <div className="hamburger-menu">
