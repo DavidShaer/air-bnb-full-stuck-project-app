@@ -43,13 +43,13 @@ export function AppGallery() {
           </div>
           <div className="item-content-wrapper">
             <p className="top-line">
-              <span className="name_and_rate">{place.name}</span>
-              {/* <span>★{place.reviews[0].rate}</span> */}
-              {place.reviews?.[0]?.rate ||
-                ("" && <span>★{place.reviews?.[0].rate || ""}</span>)}
+              {/* <span className="name_and_rate">{place.name}</span> */}
+              <span className="name">{place.name}</span>
+              <span className="rate">★ {place.reviews[0].rate}</span>
+              {/* {place.reviews?.[0]?.rate && (<span>★{place.reviews[0].rate}</span>)} */}
             </p>
             <p className="middle-line">{place.host?.fullname}</p>
-            <p className="last-line">{place.price}$</p>
+            <p className="last-line">{place.price}$ night</p>
           </div>
         </div>
       ))}

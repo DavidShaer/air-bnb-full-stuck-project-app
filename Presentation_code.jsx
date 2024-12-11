@@ -1,9 +1,9 @@
 //  front side:
-function SearchClickeHandle(searchInfoArr) {
-  const where = searchInfoArr[0];
-  const checkIn = searchInfoArr[1];
-  const checkOut = searchInfoArr[2];
-  const who = searchInfoArr[3];
+function SearchClickHandle(searchInfos) {
+  const where = searchInfos[0];
+  const checkIn = searchInfos[1];
+  const checkOut = searchInfos[2];
+  const who = searchInfos[3];
   const { adults, childrens, infants, pets } = who;
   dispatch(
     setFilterBy({
@@ -20,27 +20,16 @@ function SearchClickeHandle(searchInfoArr) {
   );
 }
 
-//  מ׳בך את המערך אינפורמציה ממי שמפעיל את ה searcClickHandel ברגע שהמשתמש לוחץ על ה search
-//
-//
-//
-//
-
 //  api side:
 async function query(filterBy) {
   try {
     const criteria = _buildCriteria(filterBy);
     const sort = _buildSort(filterBy);
-
     const collection = await dbService.getCollection("stay");
-
-    console.log("criteria: ", criteria);
     var stayCursor = await collection.find(criteria, { sort });
-
     if (filterBy.pageIdx !== undefined) {
       stayCursor.skip(filterBy.pageIdx * PAGE_SIZE).limit(PAGE_SIZE);
     }
-
     const stays = stayCursor.toArray();
     return stays;
   } catch (err) {

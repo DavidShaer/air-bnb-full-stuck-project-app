@@ -32,10 +32,21 @@
       }
       .middle-line{
         color: $gray2;
+        padding-bottom: 3px;
       }
       .top-line{
         display: flex;
         justify-content: space-between;
+        padding-bottom: 3px;
+        .rate{
+          display: flex;
+          align-items: center;
+          gap: 2px;
+          line-height: 1; 
+        }
+      }
+      .last-line{
+        padding-top: 13px;
       }
     }
   }
@@ -43,7 +54,6 @@
   .item-image {
   // height: 300px; /* Set a constant height */
   // width: 300px; /* Allow proportional width resizing */
-
   max-width: 600px; /* Ensure it doesn't exceed container's width */
   object-fit: contain; /* Resize proportionally without cropping */
   aspect-ratio: 1;
@@ -51,6 +61,7 @@
   img {
     height: 100%;
     border-radius: 15px;
+    object-fit: cover;
   }
 }
 

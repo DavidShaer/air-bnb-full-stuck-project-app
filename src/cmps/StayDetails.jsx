@@ -96,10 +96,10 @@ export function StayDetails() {
             <div className="stay-left">
               <div className="stay-left-top">
                 <div className="stay-left-address">{stay.loc.address}</div>
-                <div className="stay-left-details">{`guests: ${stay.capacity} · bathrooms:${stay.bathrooms} · beds:${stay.bedrooms} · ${stay.roomType} `}</div>
+                <div className="stay-left-details">{`${stay.capacity} guests · ${stay.bathrooms} bathrooms · ${stay.bedrooms} beds · ${stay.roomType} `}</div>
                 <div className="stay-left-reviews">
-                  <FaStar />
-                  <div>{`5.0 · ${stay.reviews.length} reviews `}</div>
+                  {/* <FaStar /> */}
+                  <div>{`★ 5.0 · ${stay.reviews.length} reviews `}</div>
                 </div>
               </div>
               <div className="stay-left-bottom">
